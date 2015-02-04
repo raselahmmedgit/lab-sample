@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "CreateOrEdit";
+}
+<fieldset>
+    <legend style="display:inline !important; font-size: 20px !important;font-weight: bold;margin: 0 !important;padding: 0 !important;">Profile Information:</legend>
+    <ol data-bind='with: profile'>
+        <li>
+            <label for="FirstName">First Name: </label>
+            <input type="text" data-bind='value: FirstName' name="" placeholder="First Name" />
+        </li>
+        <li>
+            <label for="LastName">Last Name: </label>
+            <input type="text" data-bind='value: LastName' name="" placeholder="Last Name" />
+        </li>
+        <li>
+            <label for="Name">Email: </label>
+            <input type="text" data-bind='value: Email' name="" placeholder="Email" />
+        </li>
+    </ol>
+    <button data-bind='click: saveProfile'>Save Profile</button>
+    <input type="button" value="Back To Profile List" data-bind="click: $root.backToProfileList" />
+</fieldset>
+<script src="~/Scripts/App/app-contact-create-edit.js"></script>
+<style>
+    .validationMessage {
+        color: red;
+        font-size: 0.8em;
+    }
+</style>

@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div>
+    <h2>Ajax Call</h2>
+    <div id="message"></div>
+</div>
+
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        //-----------------------------------------------------
+        //Ajax Call
+        $.get('@Url.Action("IndexAjax", "Home")', function (result) {
+            if (result.message) {
+                console.log(result.message);
+                $('#message').html("");
+                $('#message').html(result.message);
+                
+            } else {
+                // do whatever you were doing before with the results
+            }
+        });
+        //-----------------------------------------------------
+
+    });
+
+</script>

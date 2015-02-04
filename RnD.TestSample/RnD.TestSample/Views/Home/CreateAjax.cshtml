@@ -1,0 +1,90 @@
+﻿@model RnD.TestSample.Models.Profile
+@{
+    ViewBag.Title = "Create Ajax";
+}
+
+<section id="profileForm">
+    <h2>Profile...</h2>
+    @*<form id="formProfile" method="post" action="" novalidate="novalidate">
+    </form>*@
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "formProfile" }))
+    {
+        @*@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "formProfile", action = "" }))
+    {*@
+        @*@using (Ajax.BeginForm("Create", "Home", null,
+new AjaxOptions
+{
+UpdateTargetId = "updateTargetId",
+InsertionMode = InsertionMode.Replace,
+HttpMethod = "POST",
+OnSuccess = "OnSuccess",
+}, new { @id = "formProfile" }))
+{*@
+    
+    @*@using (Ajax.BeginForm(null, null, null,
+new AjaxOptions
+{
+UpdateTargetId = "updateTargetId",
+InsertionMode = InsertionMode.Replace,
+HttpMethod = "POST",
+OnSuccess = "OnSuccess",
+}, new { @id = "formProfile" }))
+{*@   
+     
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Create Profile:</legend>
+            <ol>
+                <li>
+                    @Html.LabelFor(m => m.Name)
+                    @Html.TextBoxFor(m => m.Name)
+                    @Html.ValidationMessageFor(m => m.Name)
+                </li>
+                <li>
+                    @Html.LabelFor(m => m.Email)
+                    @Html.TextBoxFor(m => m.Email)
+                    @Html.ValidationMessageFor(m => m.Email)
+                </li>
+                @Html.Partial("_ProfileAddress", Model)
+                @Html.Partial("_ProfileContact", Model)
+            </ol>
+            <input type="submit" id="btnSubmit" value="Submit" />&nbsp;&nbsp;&nbsp;
+            <input type="button" id="btnSave" value="Button" />
+        </fieldset>
+    }
+</section>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        //-----------------------------------------------------
+        //Save
+        $('#btnSave').live('click', function () {
+
+            var masterObj = {};
+            var name = 'Name';
+            var email = 'Email';
+            var addressname = 'Address.Name';
+            var contactnumber = 'Contact.Number';
+
+            masterObj[name] = 'Rasel Ahmmed';
+            masterObj[email] = 'raselahmmed@gmail.com';
+            masterObj[addressname] = 'Dhaka';
+            masterObj[contactnumber] = '01911045573';
+
+            console.log(masterObj);
+
+            var isValid = $('#formProfile').valid();
+
+            console.log(isValid);
+
+            console.log('btnSave');
+
+        });
+        //-----------------------------------------------------
+
+    });
+
+</script>
