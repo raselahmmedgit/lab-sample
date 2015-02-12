@@ -1,0 +1,35 @@
+﻿@model IEnumerable<RnD.Apps.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Category List</h2>
+
+<p>
+    <a href="@Url.Action("Create", "Category")" title="Add" class="btn btn-primary btn-sm" id="lnkAddCommon">Add</a>
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", "Category", new { id = item.CategoryId })" title="Edit" class="lnkEditCommon btn btn-primary btn-sm">Edit</a>
+                <a href="@Url.Action("Details", "Category", new { id = item.CategoryId })" title="Details" class="lnkDetailCommon btn btn-info btn-sm">Details</a>
+                <a href="@Url.Action("Delete", "Category", new { id = item.CategoryId })" title="Delete" class="lnkDeleteCommon btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>
+

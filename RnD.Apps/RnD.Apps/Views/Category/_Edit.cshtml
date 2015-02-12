@@ -1,0 +1,42 @@
+﻿@model RnD.Apps.Models.Category
+@using (Ajax.BeginForm("Save", "Currency", null,
+        new AjaxOptions
+        {
+            UpdateTargetId = "updateTargetId",
+            InsertionMode = InsertionMode.Replace,
+            HttpMethod = "POST",
+            OnBegin = "AppCommonWindowBegin",
+            OnSuccess = "AppCommonWindowSuccess",
+            OnComplete = "AppCommonWindowComplete",
+        }, new { @id = "appCommonWindowForm" }))
+{
+    <div class="row ">
+        <div id="updateTargetId" class="callout callout-warning" style="display: none">
+        </div>
+    </div>
+    <fieldset>
+        <legend>Category</legend>
+
+        @Html.HiddenFor(model => model.CategoryId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

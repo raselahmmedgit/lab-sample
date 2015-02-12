@@ -1,0 +1,14 @@
+﻿@model RnD.Apps.Models.Category
+<form action="javascript:;" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-4 control-label">@Html.LabelFor(model => model.Name)</label>
+        <div class="col-sm-8">
+            @Html.DisplayFor(model => model.Name)
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-12 pull-right">
+            <input type="button" class="btn btn-warning btn-sm" value="Cancel" onclick="CloseAppCommonModal()" />
+        </div>
+    </div>
+</form>
