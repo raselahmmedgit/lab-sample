@@ -1,4 +1,5 @@
-﻿using RnD.Apps.Models;
+﻿using RnD.Apps.DataTablesHelpers;
+using RnD.Apps.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -25,6 +26,11 @@ namespace RnD.Apps
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+
+            // Lets MVC know that anytime there is a JQueryDataTablesModel as a parameter in an action to use the
+            // JQueryDataTablesModelBinder when binding the model.
+            ModelBinders.Binders.Add(typeof(JQueryDataTablesModel), new JQueryDataTablesModelBinder());
+
             InitializeAndSeedDb();
 
         }

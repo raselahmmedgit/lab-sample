@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using RnD.Apps.Models;
 using RnD.Apps.Helpers;
 using RnD.Apps.ViewModels;
+using RnD.Apps.DataTablesHelpers;
 
 namespace RnD.Apps.Controllers
 {
@@ -27,6 +28,7 @@ namespace RnD.Apps.Controllers
         // for display datatable
         public ActionResult GetCategories(DataTableParamModel param)
         {
+            //http://www.justinmichaels.net/using-jquery-datatables-with-asp-net-mvc-for-serverside-filtering-sorting-and-paging
             var categories = _db.Categories.ToList();
 
             var viewProducts = categories.Select(cat => new CategoryTableModels() { CategoryId = Convert.ToString(cat.CategoryId), Name = cat.Name });
@@ -57,6 +59,20 @@ namespace RnD.Apps.Controllers
                             JsonRequestBehavior.AllowGet);
         }
 
+        [HttpPost]
+        public JsonResult Search(JQueryDataTablesModel jQueryDataTablesModel)
+        {
+            int totalRecordCount;
+            int searchRecordCount;
+            var customers = InMemoryCategoryRepository.GetCategories(startIndex: jQueryDataTablesModel.iDisplayStart,
+                pageSize: jQueryDataTablesModel.iDisplayLength, sortedColumns: jQueryDataTablesModel.GetSortedColumns(),
+                totalRecordCount: out totalRecordCount, searchRecordCount: out searchRecordCount, searchString: jQueryDataTablesModel.sSearch);
+
+            return Json(new JQueryDataTablesResponse<Category>(items: customers,
+                totalRecords: totalRecordCount,
+                totalDisplayRecords: searchRecordCount,
+                sEcho: jQueryDataTablesModel.sEcho));
+        }
 
         //
         // GET: /Category/Details/By ID

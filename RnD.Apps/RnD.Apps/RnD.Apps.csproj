@@ -183,10 +183,16 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DataTablesHelpers\CollectionHelper.cs" />
+    <Compile Include="DataTablesHelpers\JQueryDataTablesModel.cs" />
+    <Compile Include="DataTablesHelpers\JQueryDataTablesModelBinder.cs" />
+    <Compile Include="DataTablesHelpers\JQueryDataTablesResponse.cs" />
+    <Compile Include="DataTablesHelpers\ValueProviderCollection.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\DataTableHelper.cs" />
     <Compile Include="Helpers\DataTableParamModel.cs" />
     <Compile Include="Models\AppDbContext.cs" />
     <Compile Include="Models\AppModels.cs" />
@@ -400,6 +406,8 @@
     <Content Include="Views\Shared\_Bootstrap.cshtml" />
     <Content Include="Views\Category\_CreateOrEdit.cshtml" />
     <Content Include="Views\Home\Demo.cshtml" />
+    <Content Include="Views\Category\Copy of Index.cshtml" />
+    <Content Include="Views\Category\_ProductList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

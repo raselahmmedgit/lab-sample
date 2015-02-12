@@ -1,0 +1,23 @@
+﻿@model IEnumerable<RnD.Apps.ViewModels.ProductTableModels>
+<div class="category-product-list">
+    @if (Model != null && Model.Count() != 0)
+    {
+
+        foreach (var item in Model.ToList())
+        {
+
+        <div class="display-field">
+            <strong>Product Name: </strong><span>@Html.DisplayFor(model => item.Name)</span>,
+            <strong>Price: </strong><span>@Html.DisplayFor(model => item.Price)</span>
+        </div>
+        
+        }
+    }
+    else
+    {
+
+        <div class="display-field">
+            <strong>Nothing found - Sorry</strong>
+        </div> 
+    }
+</div>

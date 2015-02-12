@@ -385,7 +385,7 @@ function LoadErrorAppMessageModalWithText(messageText) {
 
 function GetAppMessageModalContent(messageType, messageText) {
 
-	var content = "<div id='messageModalPage' class='messageModalPage form-win col-xs-12'><div class='row'> <div style='margin-bottom: 10px !important;' class='alert alert-" + messageType + "'><h4 style='margin-bottom: 0px !important;'>" + messageText + "</h4></div> </div></div></div>";
+	var content = "<div id='messageModalPage' class='messageModalPage'><div class='row'><div style='margin-bottom: 10px !important;' class='alert alert-" + messageType + "'>" + messageText + "</div> </div></div></div>";
 
 	return content;
 
