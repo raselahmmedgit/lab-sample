@@ -31,7 +31,7 @@ namespace RnD.Apps
             // JQueryDataTablesModelBinder when binding the model.
             ModelBinders.Binders.Add(typeof(JQueryDataTablesModel), new JQueryDataTablesModelBinder());
 
-            InitializeAndSeedDb();
+            //InitializeAndSeedDb();
 
         }
 

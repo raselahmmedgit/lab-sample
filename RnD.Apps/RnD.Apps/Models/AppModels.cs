@@ -8,8 +8,25 @@ using System.Web;
 
 namespace RnD.Apps.Models
 {
+    [Table("AppSetting")]
+    public class AppSetting
+    {
+        [Key]
+        public int ApplicationId { get; set; }
+
+        [DisplayName("Application Name")]
+        [MaxLength(200)]
+        public string ApplicationName { get; set; }
+
+        [DisplayName("Application Version")]
+        [MaxLength(200)]
+        public string ApplicationVersion { get; set; }
+    }
+
+    [Table("Category")]
     public class Category
     {
+        [Key]
         public int CategoryId { get; set; }
         [DisplayName("Category Name")]
         [Required(ErrorMessage = "Name is required")]
@@ -17,8 +34,10 @@ namespace RnD.Apps.Models
         public string Name { get; set; }
     }
 
+    [Table("Product")]
     public class Product
     {
+        [Key]
         public int ProductId { get; set; }
         [DisplayName("Product Name")]
         [Required(ErrorMessage = "Name is required.")]

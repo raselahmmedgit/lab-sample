@@ -9,6 +9,7 @@ using RnD.Apps.Models;
 using RnD.Apps.Helpers;
 using RnD.Apps.ViewModels;
 using RnD.Apps.DataTablesHelpers;
+using RnD.Apps.DataTablesWrapper;
 
 namespace RnD.Apps.Controllers
 {
@@ -25,26 +26,36 @@ namespace RnD.Apps.Controllers
             //return View();
         }
 
+        public ViewResult List()
+        {
+            return View();
+        }
+
+        public ViewResult CategoryList()
+        {
+            return View();
+        }
+
         // for display datatable
         public ActionResult GetCategories(DataTableParamModel param)
         {
             //http://www.justinmichaels.net/using-jquery-datatables-with-asp-net-mvc-for-serverside-filtering-sorting-and-paging
-            var categories = _db.Categories.ToList();
+            var categoryList = _db.Categories.ToList();
 
-            var viewProducts = categories.Select(cat => new CategoryTableModels() { CategoryId = Convert.ToString(cat.CategoryId), Name = cat.Name });
+            var viewCategoryList = categoryList.Select(cat => new CategoryTableModels() { CategoryId = Convert.ToString(cat.CategoryId), Name = cat.Name });
 
-            IEnumerable<CategoryTableModels> filteredProducts;
+            IEnumerable<CategoryTableModels> filteredCategoryList;
 
             if (!string.IsNullOrEmpty(param.sSearch))
             {
-                filteredProducts = viewProducts.Where(cat => (cat.Name ?? "").Contains(param.sSearch)).ToList();
+                filteredCategoryList = viewCategoryList.Where(cat => (cat.Name ?? "").Contains(param.sSearch)).ToList();
             }
             else
             {
-                filteredProducts = viewProducts;
+                filteredCategoryList = viewCategoryList;
             }
 
-            var viewOdjects = filteredProducts.Skip(param.iDisplayStart).Take(param.iDisplayLength);
+            var viewOdjects = filteredCategoryList.Skip(param.iDisplayStart).Take(param.iDisplayLength);
 
             var result = from catMdl in viewOdjects
                          select new[] { catMdl.CategoryId, catMdl.Name };
@@ -52,11 +63,39 @@ namespace RnD.Apps.Controllers
             return Json(new
             {
                 sEcho = param.sEcho,
-                iTotalRecords = categories.Count(),
-                iTotalDisplayRecords = filteredProducts.Count(),
+                iTotalRecords = categoryList.Count(),
+                iTotalDisplayRecords = filteredCategoryList.Count(),
                 aaData = result
             },
                             JsonRequestBehavior.AllowGet);
+        }
+
+        // for display datatable
+        public ActionResult GetCategoryList(DataTablesRequest param)
+        {
+            //http://www.justinmichaels.net/using-jquery-datatables-with-asp-net-mvc-for-serverside-filtering-sorting-and-paging
+            var categoryList = _db.Categories.AsEnumerable();
+
+            var viewCategoryList = categoryList;
+
+            IEnumerable<Category> filteredCategoryList;
+
+            if (!string.IsNullOrEmpty(param.sSearch))
+            {
+                filteredCategoryList = viewCategoryList.Where(cat => (cat.Name ?? "").Contains(param.sSearch)).ToList();
+            }
+            else
+            {
+                filteredCategoryList = viewCategoryList;
+            }
+
+            var viewDataList = filteredCategoryList.Skip(param.iDisplayStart).Take(param.iDisplayLength).ToList();
+
+            string[] data = viewDataList.ConvertAll(x => x.ToString()).ToArray();
+
+            var result = DataTablesResponse.CreateResponse(param, categoryList.Count(), filteredCategoryList.Count(), data);
+
+            return Json(result,JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]

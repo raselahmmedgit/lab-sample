@@ -1,0 +1,105 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\AppDbContext.cs" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="DataTables.AspNet.AspNetCore" Version="2.0.2" />
+    <PackageReference Include="jquery.datatables" Version="1.10.15" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="wwwroot\lib\jquery-datatables\css\common.scss" />
+    <None Include="wwwroot\lib\jquery-datatables\css\mixins.scss" />
+    <None Include="wwwroot\lib\jquery-datatables\css\semanticui.scss" />
+    <None Include="wwwroot\lib\jquery-datatables\js\autoFill.bootstrap.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\autoFill.bootstrap.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\autoFill.bootstrap4.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\autoFill.bootstrap4.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\autoFill.foundation.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\autoFill.foundation.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\autoFill.jqueryui.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\autoFill.jqueryui.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\autoFill.semanticui.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\autoFill.semanticui.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\buttons.bootstrap.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\buttons.bootstrap.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\buttons.bootstrap4.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\buttons.bootstrap4.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\buttons.colVis.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\buttons.colVis.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\buttons.flash.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\buttons.flash.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\buttons.foundation.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\buttons.foundation.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\buttons.html5.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\buttons.html5.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\buttons.jqueryui.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\buttons.jqueryui.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\buttons.print.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\buttons.print.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\buttons.semanticui.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\buttons.semanticui.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.autoFill.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.autoFill.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.bootstrap.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.bootstrap.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.bootstrap4.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.bootstrap4.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.buttons.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.buttons.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.colReorder.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.colReorder.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.fixedColumns.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.fixedColumns.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.fixedHeader.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.fixedHeader.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.foundation.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.foundation.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.jqueryui.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.jqueryui.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.keyTable.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.keyTable.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.material.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.material.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.responsive.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.responsive.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.rowGroup.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.rowGroup.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.rowReorder.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.rowReorder.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.scroller.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.scroller.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.select.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.select.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.semanticui.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.semanticui.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.uikit.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\dataTables.uikit.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\jquery.dataTables.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\jquery.dataTables.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\responsive.bootstrap.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\responsive.bootstrap.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\responsive.bootstrap4.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\responsive.bootstrap4.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\responsive.foundation.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\responsive.foundation.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\responsive.jqueryui.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\responsive.jqueryui.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\responsive.semanticui.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\responsive.semanticui.min.js" />
+    <None Include="wwwroot\lib\jquery-datatables\swf\flashExport.swf" />
+  </ItemGroup>
+
+</Project>

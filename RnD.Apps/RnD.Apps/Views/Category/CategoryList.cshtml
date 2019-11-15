@@ -1,0 +1,123 @@
+﻿@model IEnumerable<RnD.Apps.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Category List</h2>
+
+<p>
+    <a href="@Url.Action("Create", "Category")" title="Add" class="btn btn-primary btn-sm" id="lnkAddCommon">Add</a>
+</p>
+<div id="categorys-data-table">
+    <table id="categoryDataTable" class="dataTable">
+        <thead>
+            <tr>
+                <th>Options
+                </th>
+                <th>Category Name
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    var catObjData;
+    $(function () {
+
+        //start DataTable Script
+
+        //for display more collapse data from product
+        $('#categoryDataTable tbody td img.catPro').click(function () {
+
+            if ($(this).attr('class').match('catPro')) {
+                var nTr = this.parentNode.parentNode;
+                if (this.src.match('details_close')) {
+                    this.src = "/Content/Images/App/details_open.png";
+                    catObjData.fnClose(nTr);
+                }
+                else {
+                    this.src = "/Content/Images/App/details_close.png";
+                    var catid = $(this).attr("rel");
+                    $.get("/Category/GetProducts?catId=" + catid, function (products) {
+                        catObjData.fnOpen(nTr, products, 'details');
+                    });
+                }
+            }
+
+        });
+
+        catObjData = $('#categoryDataTable').dataTable({
+            "bJQueryUI": true,
+            "bAutoWidth": false,
+            "sPaginationType": "full_numbers",
+            "bSort": false,
+            "oLanguage": {
+                "sLengthMenu": "Display _MENU_ records per page",
+                "sZeroRecords": "Nothing found - Sorry",
+                "sInfo": "Showing _START_ to _END_ of _TOTAL_ records",
+                "sInfoEmpty": "Showing 0 to 0 of 0 records",
+                "sInfoFiltered": "(filtered from _MAX_ total records)"
+            },
+            "bProcessing": true,
+            "bServerSide": true,
+            "sAjaxSource": "/Category/GetCategoryList",
+            "aoColumns": [{
+                "sName": "CategoryId",
+                "bSearchable": false,
+                "bSortable": false,
+                "fnRender": function (oObj) {
+                    return '<img class="catPro img-expand-collapse" src="/Content/Images/App/details_open.png" title="Product List" alt="expand/collapse" rel="' +
+                                    oObj.aData[0] + '"/>' +
+                                    '<a class="lnkDetailCommon btn btn-info btn-sm" href=\"/Category/Details/' +
+                                    oObj.aData[0] + '\" >Details</a>' +
+                                    '<a class="lnkEditCommon btn btn-primary btn-sm" href=\"/Category/Edit/' +
+                                    oObj.aData[0] + '\" >Edit</a>' +
+                                    '<a class="lnkDeleteCommon btn btn-danger btn-sm" href=\"/Category/Delete/' +
+                                    oObj.aData[0] + '\" >Delete</a>';
+
+                }
+
+            },
+                              { "sName": "Name" }
+            ]
+        });
+
+        //end DataTable Script
+
+    });
+</script>
+<br />
+<hr />
+@*<table id="category">
+    <thead>
+        <tr>
+            <th>Name
+            </th>
+        </tr>
+    </thead>
+</table>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#category').dataTable({
+            "bJQueryUI": true,
+            "bAutoWidth": false,
+            "sPaginationType": "full_numbers",
+            "bProcessing": true,
+            "bServerSide": true,
+            "bSort": true,
+            "sAjaxSource": "/Category/GetCategoryList",
+            "sServerMethod": "POST",
+            "aoColumns": [
+            { "mDataProp": "Name" }
+            ]//,
+            //"fnRowCallback": function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+            //    //var birthday = new Date(parseInt(aData.Birthday.replace("/Date(", "").replace(")/", ""), 10));
+            //    //$('td:eq(3)', nRow).html(birthday.getMonth() + 1 + "/" + birthday.getDate() + "/" + birthday.getFullYear());
+            //}
+        });
+    });
+</script>*@

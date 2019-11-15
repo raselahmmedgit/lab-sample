@@ -8,6 +8,7 @@ namespace RnD.Apps.Models
 {
     public class AppDbContext : DbContext
     {
+        public DbSet<AppSetting> AppSettings { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
 
@@ -26,6 +27,16 @@ namespace RnD.Apps.Models
     {
         protected override void Seed(AppDbContext context)
         {
+            // Create default appSettings.
+            var appSettings = new List<AppSetting>
+                            {
+                                new AppSetting { ApplicationName = ".Net Core App", ApplicationVersion = "1.0.0"}
+                            };
+
+            appSettings.ForEach(a => context.AppSettings.Add(a));
+
+            context.SaveChanges();
+
             // Create default catrgories.
             var categories = new List<Category>
                             {

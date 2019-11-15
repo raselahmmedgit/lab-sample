@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -188,6 +190,8 @@
     <Compile Include="DataTablesHelpers\JQueryDataTablesModelBinder.cs" />
     <Compile Include="DataTablesHelpers\JQueryDataTablesResponse.cs" />
     <Compile Include="DataTablesHelpers\ValueProviderCollection.cs" />
+    <Compile Include="DataTablesWrapper\DataTablesRequest.cs" />
+    <Compile Include="DataTablesWrapper\DataTablesResponse.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -196,7 +200,6 @@
     <Compile Include="Helpers\DataTableParamModel.cs" />
     <Compile Include="Models\AppDbContext.cs" />
     <Compile Include="Models\AppModels.cs" />
-    <Compile Include="Models\asdContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\DataTableViewModels.cs" />
   </ItemGroup>
@@ -408,6 +411,8 @@
     <Content Include="Views\Home\Demo.cshtml" />
     <Content Include="Views\Category\Copy of Index.cshtml" />
     <Content Include="Views\Category\_ProductList.cshtml" />
+    <Content Include="Views\Category\List.cshtml" />
+    <Content Include="Views\Category\CategoryList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
