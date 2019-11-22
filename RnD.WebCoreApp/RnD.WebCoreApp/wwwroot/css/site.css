@@ -54,3 +54,31 @@ body {
   height: 60px;
   line-height: 60px; /* Vertically center the text there */
 }
+
+.form-actions-new {
+    border-top: 1px solid #dee2e6;
+    padding-top: 1rem;
+    text-align: right;
+    margin-top: 15px;
+}
+
+#appCommonModalForm .alert {
+    padding: 0.75rem 0.50rem;
+}
+
+.alert-ul {
+    padding: 0px;
+    list-style: none;
+    margin: 0px;
+}
+
+.field-validation-error {
+    color: #dc3545 !important;
+}
+
+.field-validation-valid {
+}
+
+.input-validation-error {
+    border-color: #dc3545 !important;
+}

@@ -1,0 +1,22 @@
+﻿@model RnD.WebCoreApp.Models.Category
+<form action="javascript:;" class="form form-horizontal">
+
+    <div class="form-body">
+        <div class="form-group row">
+            @Html.HiddenFor(model => model.CategoryId)
+            @Html.LabelFor(model => model.Name, new { @class = "col-sm-4 control-label" })
+            <div class="col-sm-8">
+                <input type="text" id="Name" class="form-control" name="Name" value="@Model.Name">
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 form-actions-new">
+                <input type="submit" class="btn btn-primary" value="Save" />
+                <input type="button" class="btn btn-danger" value="Cancel" onclick="CloseAppCommonModal();" />
+            </div>
+        </div>
+    </div>
+
+</form>

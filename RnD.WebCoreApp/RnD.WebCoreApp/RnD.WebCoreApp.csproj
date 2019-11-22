@@ -12,14 +12,19 @@
 
   <ItemGroup>
     <PackageReference Include="DataTables.AspNet.AspNetCore" Version="2.0.2" />
-    <PackageReference Include="jquery.datatables" Version="1.10.15" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <PackageReference Include="MicrosoftMvcAjax.Mvc5" Version="5.0.0" />
   </ItemGroup>
 
 
   <ItemGroup>
+    <None Include="wwwroot\lib\jquery-ajax-unobtrusive\dist\jquery.unobtrusive-ajax.js" />
+    <None Include="wwwroot\lib\jquery-ajax-unobtrusive\dist\jquery.unobtrusive-ajax.min.js" />
+    <None Include="wwwroot\lib\jquery-ajax-unobtrusive\README.md" />
+    <None Include="wwwroot\lib\jquery-blockui\js\jquery.blockUI.js" />
+    <None Include="wwwroot\lib\jquery-blockui\js\jquery.blockUI.min.js" />
     <None Include="wwwroot\lib\jquery-datatables\css\common.scss" />
     <None Include="wwwroot\lib\jquery-datatables\css\mixins.scss" />
     <None Include="wwwroot\lib\jquery-datatables\css\semanticui.scss" />
@@ -100,6 +105,8 @@
     <None Include="wwwroot\lib\jquery-datatables\js\responsive.semanticui.js" />
     <None Include="wwwroot\lib\jquery-datatables\js\responsive.semanticui.min.js" />
     <None Include="wwwroot\lib\jquery-datatables\swf\flashExport.swf" />
+    <None Include="wwwroot\lib\toastr\js\toastr.js" />
+    <None Include="wwwroot\lib\toastr\js\toastr.min.js" />
   </ItemGroup>
 
 </Project>

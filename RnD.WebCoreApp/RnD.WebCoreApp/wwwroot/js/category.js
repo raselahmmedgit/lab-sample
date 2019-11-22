@@ -1,5 +1,5 @@
 ﻿
-var dataTablesCategory;
+var categoryObjData;
 
 var Category = function () {
 
@@ -7,10 +7,37 @@ var Category = function () {
 
         $.fn.dataTable.ext.errMode = () => alert('We are facing some problem while processing the current request. Please try again later.');
 
-        $('#' + dataTableId).on('error.dt', function (e, settings, techNote, message) {
+        categoryObjData = $('#' + dataTableId).on('error.dt', function (e, settings, techNote, message) {
             console.log('We are facing some problem while processing the current request. Please try again later.', message);
         }).DataTable({
-            serverSide: true,
+
+            "bJQueryUI": true,
+            "bAutoWidth": true,
+            "sPaginationType": "full_numbers",
+            "bPaginate": true,
+            "iDisplayLength": iDisplayLength,
+            "bSort": false,
+            "bFilter": true,
+            "bSortClasses": false,
+            "lengthChange": false,
+            "oLanguage": {
+                "sLengthMenu": "Display _MENU_ records per page",
+                "sZeroRecords": "Data not found.",
+                "sInfo": "Page _START_ to _END_ (about _TOTAL_ results)",
+                "sInfoEmpty": "Page 0 to 0 (about 0 results)",
+                "sInfoFiltered": ""
+            },
+            "bProcessing": true,
+            "bServerSide": true,
+            "initComplete": function (settings, json) {
+                $.blockUI();
+                var filterLabel = '#' + dataTableId + '_filter label'
+                $(filterLabel).text('');
+                $.unblockUI();
+            },
+            "drawCallback": function (settings) {
+            },
+
             ajax: sAjaxSourceUrl,
             //ajax: {
             //    url: sAjaxSourceUrl,
@@ -20,36 +47,42 @@ var Category = function () {
                 
                 {
                     name: 'Name',
-                    data: "Name",
-                    title: "Type Name",
+                    data: "name",
+                    title: "Name",
                     sortable: false,
                     searchable: false
                 },
 
                 {
                     name: 'CategoryId',
-                    data: 'CategoryId',
-                    title: "Id",
+                    data: "categoryId",
+                    title: "Actions",
                     sortable: false,
                     searchable: false,
-                    visible: false,
-                    //render: "<button>Click!</button>"
+                    "mRender": function (data, type, row) {
+
+                        return '<a href="javascript:;" data-href=\"/Category/Details/' + row.categoryId + '\" data-name="' + row.name + '" data-id="' + row.categoryId + '" title="Details" onclick="AppModal.DetailsCommon(this)" class="btn btn-success lnkDetailCommon">Details</a>'
+                            + ' <a href="javascript:;" data-href=\"/Category/Edit/' + row.categoryId + '\" data-name="' + row.name + '" data-id="' + row.categoryId + '" title="Edit" onclick="AppModal.EditCommon(this)" style="margin-left: 5px;" class="btn btn-warning lnkEditCommon">Edit</a>'
+                            + ' <a href="javascript:;" data-href=\"/Category/Delete/' + row.categoryId + '\" data-name="' + row.name + '" data-id="' + row.categoryId + '" title="Delete" onclick="AppModal.DeleteCommon(this)" style="margin-left: 5px;" class="btn btn-danger lnkDeleteCommon">Delete</a>';
+                        //return data;
+
+                    },
+                    width: "25%"
                 }
 
             ]
-            //,
-            //initcomplete : function (settings, json) {
-            //    var filterLabel = '#' + dataTableId + '_filter label'
-            //    $(filterLabel).text('');
-            //    $.unblockUI();
-            //},
+            
         });
 
     };
 
     var loadDataTables = function (dataTableId, iDisplayLength, sAjaxSourceUrl) {
 
-        $('#' + dataTableId).DataTable({
+        $.fn.dataTable.ext.errMode = () => alert('We are facing some problem while processing the current request. Please try again later.');
+
+        categoryObjData = $('#' + dataTableId).on('error.dt', function (e, settings, techNote, message) {
+            console.log('We are facing some problem while processing the current request. Please try again later.', message);
+        }).DataTable({
             "bJQueryUI": true,
             "bAutoWidth": true,
             "sPaginationType": "full_numbers",
@@ -76,11 +109,15 @@ var Category = function () {
                     "bSearchable": false,
                     "bSortable": false,
                     "mRender": function (data, type, row) {
-                        //return '<a data-chart="bar" href="javascript:;" onclick="' + data + '" class="btn btn-sm btn-primary">Select</a>';
-                        return '<a href="javascript:;" data-name="' + row[0] + '" data-id="' + row[1] + '" class="btn btn-sm btn-primary lnkAppModal">Details</a>';
+
+                        return '<a href="javascript:;" data-href=\"/Category/Details/' + row[1] + '\" data-name="' + row[0] + '" data-id="' + row[1] + '" title="Details" onclick="AppModal.DetailsCommon(this)" class="btn btn-success">Details</a>'
+                            + ' <a href="javascript:;" data-href=\"/Category/Edit/' + row[1] + '\" data-name="' + row[0] + '" data-id="' + row[1] + '" title="Edit" onclick="AppModal.EditCommon(this)" style="margin-left: 5px;" class="btn btn-warning">Edit</a>'
+                            + ' <a href="javascript:;" data-href=\"/Category/Delete/' + row[1] + '\" data-name="' + row[0] + '" data-id="' + row[1] + '" title="Delete" onclick="AppModal.DeleteCommon(this)" style="margin-left: 5px;" class="btn btn-danger">Delete</a>';
+
                         //return data;
 
-                    }
+                    },
+                    width: "25%"
                 }
             ],
             "initComplete": function (settings, json) {
@@ -90,9 +127,6 @@ var Category = function () {
             },
             "drawCallback": function (settings) {
                 console.log('drawCallback');
-            },
-            "error": function (settings) {
-                console.log('error');
             }
         });
 
@@ -100,7 +134,7 @@ var Category = function () {
 
     var loadDataTablesWithSearch = function (iDisplayLength, sAjaxSourceUrl) {
 
-        dataTablesCategory = $('#dataTablesCategory').DataTable({
+        categoryObjData = $('#dataTablesCategory').DataTable({
             "bJQueryUI": true,
             "bAutoWidth": true,
             "sPaginationType": "full_numbers",
@@ -209,9 +243,9 @@ var Category = function () {
 
     };
 
-    var loadAddressTypeDataTables = function (dataTableId, iDisplayLength, sAjaxSourceUrl) {
+    var loadCategoryDataTables = function (dataTableId, iDisplayLength, sAjaxSourceUrl) {
 
-        addressTypeObjData = $('#' + dataTableId).DataTable({
+        categoryObjData = $('#' + dataTableId).DataTable({
             "bJQueryUI": true,
             "bAutoWidth": true,
             "sPaginationType": "full_numbers",
@@ -242,27 +276,27 @@ var Category = function () {
             ajax: sAjaxSourceUrl,
             columns: [
                 {
-                    name: 'TypeName',
-                    data: 'typeName',
+                    name: 'Name',
+                    data: 'name',
                     title: "Type Name",
                     sortable: false,
                     searchable: false
                 },
                 {
                     name: 'TypeId',
-                    data: "typeId",
+                    data: "categoryId",
                     title: "Actions",
                     sortable: false,
                     searchable: false,
                     "mRender": function (data, type, row) {
 
-                        return '<a href="JavaScript:Void(0);" data-typename="' + row.typeName + '" data-typeid="' + row.typeId + '" class="btn btn-success lnkAppModal">Details</a>'
-                            + ' <a href="JavaScript:Void(0);" data-typename="' + row.typeName + '" data-typeid="' + row.typeId + '" style="margin-left: 5px;" class="btn btn-warning lnkAppModal">Edit</a>'
-                            + ' <a href="JavaScript:Void(0);" data-typename="' + row.typeName + '" data-typeid="' + row.typeId + '" style="margin-left: 5px;" class="btn btn-danger lnkAppModal">Delete</a>';
+                        return '<a href="javascript:;" data-name="' + row.name + '" data-id="' + row.categoryId + '" class="btn btn-success lnkAppModal">Details</a>'
+                            + ' <a href="javascript:;" data-name="' + row.name + '" data-id="' + row.categoryId + '" style="margin-left: 5px;" class="btn btn-warning lnkAppModal">Edit</a>'
+                            + ' <a href="javascript:;" data-name="' + row.name + '" data-id="' + row.categoryId + '" style="margin-left: 5px;" class="btn btn-danger lnkAppModal">Delete</a>';
                         //return data;
 
                     },
-                    width: "20%"
+                    width: "25%"
                 }
             ]
 

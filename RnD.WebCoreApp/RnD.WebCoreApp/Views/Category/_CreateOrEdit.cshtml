@@ -1,0 +1,50 @@
+﻿@model RnD.WebCoreApp.Models.Category
+@*<form asp-action="SaveForReplaceMode" asp-controller="Category"
+    data-ajax="true"
+    data-ajax-begin="AppModal.CommonModalBegin();"
+    data-ajax-complete="AppCommonModalComplete('dataTablesCategory');"
+    data-ajax-success="AppModal.CommonModalSuccessForReplaceMode();"
+    data-ajax-failure="AppModal.CommonModalFailureForReplaceMode();"
+    data-ajax-mode="replace"
+    data-ajax-update="#appCommonModalMessage"
+    id="appCommonModalForm"
+    method="post"
+    novalidate="novalidate" class="form form-horizontal">*@
+
+<form asp-action="Save" asp-controller="Category" asp-area=""
+      data-ajax="true"
+      data-ajax-begin="AppModal.CommonModalBegin();"
+      data-ajax-complete="AppModal.CommonModalComplete('dataTablesCategory');"
+      data-ajax-success="AppModal.CommonModalSuccess(data);"
+      data-ajax-failure="AppModal.CommonModalFailure();"
+      id="appCommonModalForm"
+      method="post"
+      novalidate="novalidate" class="form form-horizontal">
+
+    <div class="form-body">
+        <div class="form-group row">
+            <div class="col-sm-12">
+                <div id="appCommonModalMessage" class="alert alert-info" style="display: none;">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.AntiForgeryToken()
+            @*@Html.ValidationSummary()*@
+            @Html.HiddenFor(model => model.CategoryId)
+            @Html.LabelFor(model => model.Name, new { @class = "col-sm-4 control-label" })
+            <div class="col-sm-8">
+                @Html.TextBoxFor(m => m.Name, null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 form-actions-new">
+                <input type="submit" class="btn btn-primary" value="Save" />
+                <input type="button" class="btn btn-danger" value="Cancel" onclick="CloseAppCommonModal();" />
+            </div>
+        </div>
+    </div>
+
+</form>

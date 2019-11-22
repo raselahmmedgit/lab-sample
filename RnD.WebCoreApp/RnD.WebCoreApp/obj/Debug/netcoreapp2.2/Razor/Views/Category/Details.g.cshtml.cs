@@ -24,7 +24,7 @@ using RnD.WebCoreApp.Models;
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c308f22cb46cef6a91dbac11d3d62dee2471f122", @"/Views/Category/Details.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"31e2d3d4d8d186f98fbd7a3865d1d7e5cd584d27", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f5c5ca06860da430f7dcd2ad408d747dd99ff8a8", @"/Views/_ViewImports.cshtml")]
     public class Views_Category_Details : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<RnD.WebCoreApp.Models.Category>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Edit", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);

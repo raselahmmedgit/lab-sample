@@ -4,7 +4,6 @@ C:\Users\rasel\Documents\GitHub\lab-sample\RnD.WebCoreApp\RnD.WebCoreApp\bin\Deb
 C:\Users\rasel\Documents\GitHub\lab-sample\RnD.WebCoreApp\RnD.WebCoreApp\bin\Debug\netcoreapp2.2\RnD.WebCoreApp.dll
 C:\Users\rasel\Documents\GitHub\lab-sample\RnD.WebCoreApp\RnD.WebCoreApp\bin\Debug\netcoreapp2.2\RnD.WebCoreApp.pdb
 C:\Users\rasel\Documents\GitHub\lab-sample\RnD.WebCoreApp\RnD.WebCoreApp\bin\Debug\netcoreapp2.2\RnD.WebCoreApp.Views.dll
-C:\Users\rasel\Documents\GitHub\lab-sample\RnD.WebCoreApp\RnD.WebCoreApp\bin\Debug\netcoreapp2.2\RnD.WebCoreApp.Views.pdb
 C:\Users\rasel\Documents\GitHub\lab-sample\RnD.WebCoreApp\RnD.WebCoreApp\obj\Debug\netcoreapp2.2\RnD.WebCoreApp.csproj.CoreCompileInputs.cache
 C:\Users\rasel\Documents\GitHub\lab-sample\RnD.WebCoreApp\RnD.WebCoreApp\obj\Debug\netcoreapp2.2\RnD.WebCoreApp.RazorAssemblyInfo.cache
 C:\Users\rasel\Documents\GitHub\lab-sample\RnD.WebCoreApp\RnD.WebCoreApp\obj\Debug\netcoreapp2.2\RnD.WebCoreApp.RazorAssemblyInfo.cs
@@ -22,7 +21,6 @@ C:\Users\rasel\Documents\GitHub\lab-sample\RnD.WebCoreApp\RnD.WebCoreApp\obj\Deb
 C:\Users\rasel\Documents\GitHub\lab-sample\RnD.WebCoreApp\RnD.WebCoreApp\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\RnD.WebCoreApp\RnD.WebCoreApp\obj\Debug\netcoreapp2.2\RnD.WebCoreApp.RazorTargetAssemblyInfo.cache
 C:\Users\rasel\Documents\GitHub\lab-sample\RnD.WebCoreApp\RnD.WebCoreApp\obj\Debug\netcoreapp2.2\RnD.WebCoreApp.RazorTargetAssemblyInfo.cs
-C:\Users\rasel\Documents\GitHub\lab-sample\RnD.WebCoreApp\RnD.WebCoreApp\obj\Debug\netcoreapp2.2\RnD.WebCoreApp.Views.pdb
 C:\Users\rasel\Documents\GitHub\lab-sample\RnD.WebCoreApp\RnD.WebCoreApp\obj\Debug\netcoreapp2.2\RnD.WebCoreApp.dll
 C:\Users\rasel\Documents\GitHub\lab-sample\RnD.WebCoreApp\RnD.WebCoreApp\obj\Debug\netcoreapp2.2\RnD.WebCoreApp.pdb
 C:\Users\rasel\Documents\GitHub\lab-sample\RnD.WebCoreApp\RnD.WebCoreApp\obj\Debug\netcoreapp2.2\RnD.WebCoreApp.csproj.CopyComplete
@@ -37,4 +35,10 @@ C:\Users\rasel\Documents\GitHub\lab-sample\RnD.WebCoreApp\RnD.WebCoreApp\obj\Deb
 C:\Users\rasel\Documents\GitHub\lab-sample\RnD.WebCoreApp\RnD.WebCoreApp\obj\Debug\netcoreapp2.2\Razor\Views\Product\Edit.g.cshtml.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\RnD.WebCoreApp\RnD.WebCoreApp\obj\Debug\netcoreapp2.2\Razor\Views\Product\Index.g.cshtml.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\RnD.WebCoreApp\RnD.WebCoreApp\obj\Debug\netcoreapp2.2\Razor\Views\Category\DataTables.g.cshtml.cs
+C:\Users\rasel\Documents\GitHub\lab-sample\RnD.WebCoreApp\RnD.WebCoreApp\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Error.g.cshtml.cs
+C:\Users\rasel\Documents\GitHub\lab-sample\RnD.WebCoreApp\RnD.WebCoreApp\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ErrorModal.g.cshtml.cs
+C:\Users\rasel\Documents\GitHub\lab-sample\RnD.WebCoreApp\RnD.WebCoreApp\obj\Debug\netcoreapp2.2\Razor\Views\Category\_CreateOrEdit.g.cshtml.cs
+C:\Users\rasel\Documents\GitHub\lab-sample\RnD.WebCoreApp\RnD.WebCoreApp\bin\Debug\netcoreapp2.2\RnD.WebCoreApp.Views.pdb
+C:\Users\rasel\Documents\GitHub\lab-sample\RnD.WebCoreApp\RnD.WebCoreApp\obj\Debug\netcoreapp2.2\RnD.WebCoreApp.Views.pdb
 C:\Users\rasel\Documents\GitHub\lab-sample\RnD.WebCoreApp\RnD.WebCoreApp\obj\Debug\netcoreapp2.2\RnD.WebCoreApp.csprojAssemblyReference.cache
+C:\Users\rasel\Documents\GitHub\lab-sample\RnD.WebCoreApp\RnD.WebCoreApp\obj\Debug\netcoreapp2.2\Razor\Views\Category\_Details.g.cshtml.cs

@@ -9,11 +9,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RnD.WebCoreApp.Data;
 using RnD.WebCoreApp.DataTablesWrapper;
+using RnD.WebCoreApp.Helpers;
 using RnD.WebCoreApp.Models;
 
 namespace RnD.WebCoreApp.Controllers
 {
-    public class CategoryController : Controller
+    public class CategoryController : BaseController
     {
         private readonly AppDbContext _context;
 
@@ -30,57 +31,74 @@ namespace RnD.WebCoreApp.Controllers
         // for display datatable
         public ActionResult GetDataTables(AppDataTablesRequest param)
         {
-            var categoryList = _context.Category.ToList();
-
-            IEnumerable<Category> filteredCategoryList;
-
-            if (!string.IsNullOrEmpty(param.sSearch))
+            try
             {
-                filteredCategoryList = categoryList.Where(cat => (cat.Name ?? "").Contains(param.sSearch)).ToList();
+                var categoryList = _context.Category.ToList();
+
+                IEnumerable<Category> filteredCategoryList;
+
+                if (!string.IsNullOrEmpty(param.sSearch))
+                {
+                    filteredCategoryList = categoryList.Where(cat => (cat.Name ?? "").Contains(param.sSearch)).ToList();
+                }
+                else
+                {
+                    filteredCategoryList = categoryList;
+                }
+
+                var viewOdjects = filteredCategoryList.Skip(param.iDisplayStart).Take(param.iDisplayLength);
+
+                var result = from cat in viewOdjects
+                             select new[] { cat.Name, Convert.ToString(cat.CategoryId), };
+
+                return Json(new
+                {
+                    sEcho = param.sEcho,
+                    iTotalRecords = categoryList.Count(),
+                    iTotalDisplayRecords = filteredCategoryList.Count(),
+                    aaData = result
+                });
+
             }
-            else
+            catch (Exception)
             {
-                filteredCategoryList = categoryList;
+                throw;
             }
 
-            var viewOdjects = filteredCategoryList.Skip(param.iDisplayStart).Take(param.iDisplayLength);
-
-            var result = from cat in viewOdjects
-                         select new[] {  cat.Name, Convert.ToString(cat.CategoryId), };
-
-            return Json(new
-            {
-                sEcho = param.sEcho,
-                iTotalRecords = categoryList.Count(),
-                iTotalDisplayRecords = filteredCategoryList.Count(),
-                aaData = result
-            });
+            
         }
 
         // for display datatable
         public ActionResult GetDataTablesList(AppDataTablesRequest param)
         {
-            var categoryList = _context.Category.ToList();
-
-            IEnumerable<Category> filteredCategoryList;
-
-            if (!string.IsNullOrEmpty(param.sSearch))
+            try
             {
-                filteredCategoryList = categoryList.Where(cat => (cat.Name ?? "").Contains(param.sSearch)).ToList();
+                var categoryList = _context.Category.ToList();
+
+                IEnumerable<Category> filteredCategoryList;
+
+                if (!string.IsNullOrEmpty(param.sSearch))
+                {
+                    filteredCategoryList = categoryList.Where(cat => (cat.Name ?? "").Contains(param.sSearch)).ToList();
+                }
+                else
+                {
+                    filteredCategoryList = categoryList;
+                }
+
+                var viewDataList = filteredCategoryList.Skip(param.iDisplayStart).Take(param.iDisplayLength).ToList();
+
+                //var result = from cat in viewDataList
+                //             select new[] { cat.Name, Convert.ToString(cat.CategoryId), };
+
+                var result = AppDataTablesResponse.CreateResponse(param, categoryList.Count(), filteredCategoryList.Count(), viewDataList);
+
+                return Json(result);
             }
-            else
+            catch (Exception)
             {
-                filteredCategoryList = categoryList;
+                throw;
             }
-
-            var viewDataList = filteredCategoryList.Skip(param.iDisplayStart).Take(param.iDisplayLength).ToList();
-
-            //var result = from cat in viewDataList
-            //             select new[] { cat.Name, Convert.ToString(cat.CategoryId), };
-
-            var result = AppDataTablesResponse.CreateResponse(param, categoryList.Count(), filteredCategoryList.Count(), viewDataList);
-
-            return Json(result);
         }
 
         public IActionResult GetDataTablesListWrapper(IDataTablesRequest request)
@@ -138,6 +156,102 @@ namespace RnD.WebCoreApp.Controllers
             return View();
         }
 
+        // GET: Category/Create
+        public IActionResult CreateModal()
+        {
+            try
+            {
+                var model = new Category();
+                if (model != null)
+                {
+                    return PartialView("_CreateOrEdit", model);
+                }
+                else
+                {
+                    return ErrorPartialView(ExceptionHelper.ExceptionErrorMessageForNullObject());
+                }
+            }
+            catch (Exception ex)
+            {
+                return ErrorPartialView(ex);
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Save([Bind("CategoryId,Name")] Category category)
+        {
+            //https://stackoverflow.com/questions/35202804/submitting-a-razor-form-using-jquery-ajax-in-mvc6-using-the-built-in-functionali
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    //add
+                    if (category.CategoryId == 0)
+                    {
+                        _context.Add(category);
+                        await _context.SaveChangesAsync();
+
+                        _result = Result.Ok(MessageHelper.Save);
+                    }
+                    else if (category.CategoryId > 0) //edit
+                    {
+                        _context.Update(category);
+                        await _context.SaveChangesAsync();
+
+                        _result = Result.Ok(MessageHelper.Update);
+                    }
+
+                    return JsonResult(_result);
+                }
+                else
+                {
+                    return JsonResult(ModelState);
+                }
+            }
+            catch (Exception ex)
+            {
+                return JsonResult(ex);
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SaveForReplaceMode([Bind("CategoryId,Name")] Category category)
+        {
+            //https://stackoverflow.com/questions/35202804/submitting-a-razor-form-using-jquery-ajax-in-mvc6-using-the-built-in-functionali
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    //add
+                    if (category.CategoryId == 0)
+                    {
+                        _context.Add(category);
+                        await _context.SaveChangesAsync();
+
+                        _result = Result.Ok(MessageHelper.Save);
+                    }
+                    else if (category.CategoryId > 0) //edit
+                    {
+                        _context.Update(category);
+                        await _context.SaveChangesAsync();
+
+                        _result = Result.Ok(MessageHelper.Update);
+                    }
+
+                    return Content(ModalHelper.Content(_result));
+
+                }
+
+                return Content(ModalHelper.ContentModelError(ModelState));
+            }
+            catch (Exception ex)
+            {
+                return Content(ModalHelper.ContentError(ex));
+            }
+        }
+
         // POST: Category/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -145,13 +259,29 @@ namespace RnD.WebCoreApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CategoryId,Name")] Category category)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _context.Add(category);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    _context.Add(category);
+                    await _context.SaveChangesAsync();
+
+                    _result = Result.Ok(MessageHelper.Save);
+
+                    this.FlashSuccess(_result.Error);
+                }
+                else
+                {
+                    this.FlashError(ExceptionHelper.ModelStateErrorFormat(ModelState));
+                }
             }
-            return View(category);
+            catch (Exception ex)
+            {
+                this.FlashError(ExceptionHelper.ExceptionErrorMessageFormat(ex));
+
+            }
+
+            return RedirectResult("Index", "Category");
         }
 
         // GET: Category/Edit/5
@@ -228,10 +358,37 @@ namespace RnD.WebCoreApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var category = await _context.Category.FindAsync(id);
-            _context.Category.Remove(category);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                if (id > 0)
+                {
+                    var category = await _context.Category.FindAsync(id);
+                    
+                    if (category != null)
+                    {
+                        _context.Category.Remove(category);
+                        await _context.SaveChangesAsync();
+
+                        _result = Result.Ok(MessageHelper.Save);
+                    }
+                    else
+                    {
+                        _result = Result.Fail(MessageHelper.DeleteFail);
+                    }
+                    
+                }
+                else
+                {
+                    _result = Result.Fail(MessageHelper.DeleteFail);
+                }
+
+                return JsonResult(_result);
+
+            }
+            catch (Exception ex)
+            {
+                return JsonResult(ex);
+            }
         }
 
         private bool CategoryExists(int id)
