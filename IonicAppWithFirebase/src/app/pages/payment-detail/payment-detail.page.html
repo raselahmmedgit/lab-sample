@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/profile"></ion-back-button>
+    </ion-buttons>
+    <ion-title>My Transactions</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="danger" routerLink="/payment">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-list>
+          <ion-row class="ion-no-padding" *ngFor="let paymentDetail of paymentDetails" (click)="viewPayment(paymentDetail)">
+            <ion-col size="8">
+              <ion-item lines="none" class="ion-text-left">
+                <ion-label>{{paymentDetail.payeeName}}</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col size="4">
+              <ion-item lines="none" class="ion-text-right">
+                <ion-label>{{paymentDetail.amount.toLocaleString()}}</ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

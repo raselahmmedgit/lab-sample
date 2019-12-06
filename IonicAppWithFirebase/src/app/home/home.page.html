@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <ion-button color="danger" (click)="onNextButtonClick()">
+      Next Page
+    </ion-button>
+  </div>
+  <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchChanged($event)"></ion-searchbar>
+  <ion-list>
+
+    <ion-item button *ngFor="let item of (results | async)" [routerLink]="['/', 'pixabay-detail', item.id]">
+      <ion-avatar slot="start">
+        <img [src]="item.previewURL">
+      </ion-avatar>
+
+      <ion-label text-wrap>
+        <h3>Likes: {{ item.likes }}</h3>
+        Comments: {{ item.comments }}
+      </ion-label>
+
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
