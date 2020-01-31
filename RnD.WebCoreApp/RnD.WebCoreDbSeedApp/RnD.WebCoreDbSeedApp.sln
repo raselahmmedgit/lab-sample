@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.960
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RnD.WebCoreDbSeedApp", "RnD.WebCoreDbSeedApp\RnD.WebCoreDbSeedApp.csproj", "{73CB364C-1B7D-4C77-9C99-4B3FDC3B9362}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73CB364C-1B7D-4C77-9C99-4B3FDC3B9362}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73CB364C-1B7D-4C77-9C99-4B3FDC3B9362}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73CB364C-1B7D-4C77-9C99-4B3FDC3B9362}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73CB364C-1B7D-4C77-9C99-4B3FDC3B9362}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6293C7B3-9ADC-4111-9D3C-935D3A9DC63C}
+	EndGlobalSection
+EndGlobal
