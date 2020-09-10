@@ -3,7 +3,7 @@ using ContactProfile.App.EntityModels.Base;
 using ContactProfile.App.EntityModels.Type;
 using Microsoft.EntityFrameworkCore;
 
-namespace ContactProfile.App.Models
+namespace ContactProfile.App.DataContext
 {
     public class AppDbContext : DbContext
     {

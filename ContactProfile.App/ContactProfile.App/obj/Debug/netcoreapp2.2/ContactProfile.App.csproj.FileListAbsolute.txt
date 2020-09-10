@@ -1,8 +1,3 @@
-C:\Users\rasel\Documents\GitHub\lab-sample\ContactProfile.App\ContactProfile.App\obj\Debug\netcoreapp2.2\ContactProfile.App.csproj.CoreCompileInputs.cache
-C:\Users\rasel\Documents\GitHub\lab-sample\ContactProfile.App\ContactProfile.App\obj\Debug\netcoreapp2.2\ContactProfile.App.RazorAssemblyInfo.cache
-C:\Users\rasel\Documents\GitHub\lab-sample\ContactProfile.App\ContactProfile.App\obj\Debug\netcoreapp2.2\ContactProfile.App.RazorAssemblyInfo.cs
-C:\Users\rasel\Documents\GitHub\lab-sample\ContactProfile.App\ContactProfile.App\obj\Debug\netcoreapp2.2\ContactProfile.App.AssemblyInfoInputs.cache
-C:\Users\rasel\Documents\GitHub\lab-sample\ContactProfile.App\ContactProfile.App\obj\Debug\netcoreapp2.2\ContactProfile.App.AssemblyInfo.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\ContactProfile.App\ContactProfile.App\bin\Debug\netcoreapp2.2\ContactProfile.App.deps.json
 C:\Users\rasel\Documents\GitHub\lab-sample\ContactProfile.App\ContactProfile.App\bin\Debug\netcoreapp2.2\ContactProfile.App.runtimeconfig.json
 C:\Users\rasel\Documents\GitHub\lab-sample\ContactProfile.App\ContactProfile.App\bin\Debug\netcoreapp2.2\ContactProfile.App.runtimeconfig.dev.json
@@ -10,6 +5,11 @@ C:\Users\rasel\Documents\GitHub\lab-sample\ContactProfile.App\ContactProfile.App
 C:\Users\rasel\Documents\GitHub\lab-sample\ContactProfile.App\ContactProfile.App\bin\Debug\netcoreapp2.2\ContactProfile.App.pdb
 C:\Users\rasel\Documents\GitHub\lab-sample\ContactProfile.App\ContactProfile.App\bin\Debug\netcoreapp2.2\ContactProfile.App.Views.dll
 C:\Users\rasel\Documents\GitHub\lab-sample\ContactProfile.App\ContactProfile.App\bin\Debug\netcoreapp2.2\ContactProfile.App.Views.pdb
+C:\Users\rasel\Documents\GitHub\lab-sample\ContactProfile.App\ContactProfile.App\obj\Debug\netcoreapp2.2\ContactProfile.App.csproj.CoreCompileInputs.cache
+C:\Users\rasel\Documents\GitHub\lab-sample\ContactProfile.App\ContactProfile.App\obj\Debug\netcoreapp2.2\ContactProfile.App.RazorAssemblyInfo.cache
+C:\Users\rasel\Documents\GitHub\lab-sample\ContactProfile.App\ContactProfile.App\obj\Debug\netcoreapp2.2\ContactProfile.App.RazorAssemblyInfo.cs
+C:\Users\rasel\Documents\GitHub\lab-sample\ContactProfile.App\ContactProfile.App\obj\Debug\netcoreapp2.2\ContactProfile.App.AssemblyInfoInputs.cache
+C:\Users\rasel\Documents\GitHub\lab-sample\ContactProfile.App\ContactProfile.App\obj\Debug\netcoreapp2.2\ContactProfile.App.AssemblyInfo.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\ContactProfile.App\ContactProfile.App\obj\Debug\netcoreapp2.2\ContactProfile.App.TagHelpers.input.cache
 C:\Users\rasel\Documents\GitHub\lab-sample\ContactProfile.App\ContactProfile.App\obj\Debug\netcoreapp2.2\ContactProfile.App.TagHelpers.output.cache
 C:\Users\rasel\Documents\GitHub\lab-sample\ContactProfile.App\ContactProfile.App\obj\Debug\netcoreapp2.2\ContactProfile.App.RazorCoreGenerate.cache

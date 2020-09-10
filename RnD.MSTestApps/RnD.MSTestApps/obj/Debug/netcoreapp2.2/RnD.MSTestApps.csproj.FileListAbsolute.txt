@@ -1,0 +1,14 @@
+C:\Users\rasel\Documents\GitHub\lab-sample\RnD.MSTestApps\RnD.MSTestApps\bin\Debug\netcoreapp2.2\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\rasel\Documents\GitHub\lab-sample\RnD.MSTestApps\RnD.MSTestApps\bin\Debug\netcoreapp2.2\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\rasel\Documents\GitHub\lab-sample\RnD.MSTestApps\RnD.MSTestApps\bin\Debug\netcoreapp2.2\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\rasel\Documents\GitHub\lab-sample\RnD.MSTestApps\RnD.MSTestApps\bin\Debug\netcoreapp2.2\RnD.MSTestApps.deps.json
+C:\Users\rasel\Documents\GitHub\lab-sample\RnD.MSTestApps\RnD.MSTestApps\bin\Debug\netcoreapp2.2\RnD.MSTestApps.runtimeconfig.json
+C:\Users\rasel\Documents\GitHub\lab-sample\RnD.MSTestApps\RnD.MSTestApps\bin\Debug\netcoreapp2.2\RnD.MSTestApps.runtimeconfig.dev.json
+C:\Users\rasel\Documents\GitHub\lab-sample\RnD.MSTestApps\RnD.MSTestApps\bin\Debug\netcoreapp2.2\RnD.MSTestApps.dll
+C:\Users\rasel\Documents\GitHub\lab-sample\RnD.MSTestApps\RnD.MSTestApps\bin\Debug\netcoreapp2.2\RnD.MSTestApps.pdb
+C:\Users\rasel\Documents\GitHub\lab-sample\RnD.MSTestApps\RnD.MSTestApps\obj\Debug\netcoreapp2.2\RnD.MSTestApps.csprojAssemblyReference.cache
+C:\Users\rasel\Documents\GitHub\lab-sample\RnD.MSTestApps\RnD.MSTestApps\obj\Debug\netcoreapp2.2\RnD.MSTestApps.csproj.CoreCompileInputs.cache
+C:\Users\rasel\Documents\GitHub\lab-sample\RnD.MSTestApps\RnD.MSTestApps\obj\Debug\netcoreapp2.2\RnD.MSTestApps.AssemblyInfoInputs.cache
+C:\Users\rasel\Documents\GitHub\lab-sample\RnD.MSTestApps\RnD.MSTestApps\obj\Debug\netcoreapp2.2\RnD.MSTestApps.AssemblyInfo.cs
+C:\Users\rasel\Documents\GitHub\lab-sample\RnD.MSTestApps\RnD.MSTestApps\obj\Debug\netcoreapp2.2\RnD.MSTestApps.dll
+C:\Users\rasel\Documents\GitHub\lab-sample\RnD.MSTestApps\RnD.MSTestApps\obj\Debug\netcoreapp2.2\RnD.MSTestApps.pdb

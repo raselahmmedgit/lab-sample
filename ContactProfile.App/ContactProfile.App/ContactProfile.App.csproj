@@ -14,7 +14,6 @@
 
 
   <ItemGroup>
-    <Folder Include="Core\" />
     <Folder Include="BLL\" />
     <Folder Include="DAL\" />
   </ItemGroup>

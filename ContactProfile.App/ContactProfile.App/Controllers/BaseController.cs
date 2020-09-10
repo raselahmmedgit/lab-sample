@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ContactProfile.App.Exception;
-using ContactProfile.App.Helpers;
-using ContactProfile.App.WebCore;
+﻿using ContactProfile.App.Helpers;
+using ContactProfile.App.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;
+using System;
 
 namespace ContactProfile.App.Controllers
 {
@@ -38,7 +34,7 @@ namespace ContactProfile.App.Controllers
             return View("Error", errorPageViewModel);
         }
 
-        internal IActionResult ErrorPartialView(System.Exception ex)
+        internal IActionResult ErrorPartialView(Exception ex)
         {
             _logger.LogError(ex, "ErrorPartialView");
             var errorPageViewModel = new ErrorPageViewModel();
@@ -59,7 +55,7 @@ namespace ContactProfile.App.Controllers
             return PartialView("_ErrorModal", errorPageViewModel);
         }
 
-        internal IActionResult JsonResult(System.Exception ex)
+        internal IActionResult JsonResult(Exception ex)
         {
             _logger.LogError(ex, "JsonResult");
             return ModalHelper.JsonError(ex);
