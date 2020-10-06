@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace lab.DataStore.App.PageViewModels
 {
-    public class ProfilePageViewModel
+    public class ContactProfilePageViewModel
     {
     }
 }

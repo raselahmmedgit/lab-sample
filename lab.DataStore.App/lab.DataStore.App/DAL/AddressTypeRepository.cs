@@ -22,91 +22,38 @@ namespace lab.DataStore.App.DAL
             _context = context;
         }
 
-        public Result InsertOrUpdate(AddressType model)
+        public async Task<AddressType> GetAddressTypeAsync(int id)
         {
-            Result result = new Result();
-            try
-            {
-                if (model.TypeId == 0)
-                {
-                    _context.AddressType.Add(model);
-
-                    result = Result.Ok(MessageHelper.Save);
-                }
-                else
-                {
-                    _context.Entry(model).State = EntityState.Modified;
-
-                    result = Result.Ok(MessageHelper.Update);
-                }
-                int saveChanges = _context.SaveChanges();
-                if (saveChanges > 0)
-                {
-                    return result;
-                }
-                else
-                {
-                    return Result.Fail(MessageHelper.Error);
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        public Result DeleteById(int id)
-        {
-            Result result = new Result();
-            try
-            {
-                if (id != 0)
-                {
-                    var model = _context.AddressType.SingleOrDefault(c => c.TypeId == id);
-                    if (model != null)
-                    {
-                        _context.AddressType.Remove(model);
-
-                        result = Result.Ok(MessageHelper.Delete);
-                    }
-                    int saveChanges = _context.SaveChanges();
-                    if (saveChanges > 0)
-                    {
-                        return result;
-                    }
-                    else
-                    {
-                        return Result.Fail(MessageHelper.DeleteFail);
-                    }
-                }
-                else
-                {
-                    return Result.Fail(MessageHelper.DeleteFail);
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        public IEnumerable<AddressType> GetAddressTypes()
-        {
-            try
-            {
-                return _context.AddressType.ToList();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return await _context.AddressType.SingleOrDefaultAsync(x => x.TypeId == id);
         }
 
         public async Task<IEnumerable<AddressType>> GetAddressTypesAsync()
         {
+            return await _context.AddressType.ToListAsync();
+        }
+
+        public async Task<int> InsertOrUpdatetAddressTypeAsync(AddressType model)
+        {
+            if (model.TypeId == 0)
+            {
+                await _context.AddressType.AddAsync(model);
+            }
+            else
+            {
+                _context.AddressType.Update(model);
+            }
+            return await _context.SaveChangesAsync();
+        }
+
+        public async Task<int> InsertAddressTypeAsync(AddressType model)
+        {
             try
             {
-                return await _context.AddressType.ToListAsync();
+                if (model.TypeId == 0)
+                {
+                    await _context.AddressType.AddAsync(model);
+                }
+                return await _context.SaveChangesAsync();
             }
             catch (Exception)
             {
@@ -114,16 +61,22 @@ namespace lab.DataStore.App.DAL
             }
         }
 
-        public async Task<AddressType> GetAddressTypeAsync(int id)
+        public async Task<int> UpdateAddressTypeAsync(AddressType model)
         {
-            try
+            if (model.TypeId > 0)
             {
-                return await _context.AddressType.FirstOrDefaultAsync(x => x.TypeId == id);
+                _context.AddressType.Update(model);
             }
-            catch (Exception)
+            return await _context.SaveChangesAsync();
+        }
+
+        public async Task<int> DeleteAddressTypeAsync(AddressType model)
+        {
+            if (model.TypeId > 0)
             {
-                throw;
+                _context.AddressType.Remove(model);
             }
+            return await _context.SaveChangesAsync();
         }
 
         #region IDisposable Support
@@ -145,5 +98,15 @@ namespace lab.DataStore.App.DAL
             GC.SuppressFinalize(this);
         }
         #endregion
+    }
+
+    public interface IAddressTypeRepository : IDisposable
+    {
+        Task<AddressType> GetAddressTypeAsync(int id);
+        Task<IEnumerable<AddressType>> GetAddressTypesAsync();
+        Task<int> InsertOrUpdatetAddressTypeAsync(AddressType model);
+        Task<int> InsertAddressTypeAsync(AddressType model);
+        Task<int> UpdateAddressTypeAsync(AddressType model);
+        Task<int> DeleteAddressTypeAsync(AddressType model);
     }
 }

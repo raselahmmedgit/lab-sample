@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "3cf83143272fbf5e40139a17c72128b2fff2ee7a"
+    "signature": "795b67e321f846cc7b8f5ce11430f17d8c28cd0a"
   },
   "compilationOptions": {
     "defines": [
@@ -25,6 +25,7 @@
       "lab.DataStore.App/1.0.0": {
         "dependencies": {
           "AutoMapper": "10.0.0",
+          "DataTables.AspNet.AspNetCore": "2.0.2",
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
           "Microsoft.NETCore.App": "2.2.0",
@@ -52,6 +53,37 @@
         },
         "compile": {
           "lib/netstandard2.0/AutoMapper.dll": {}
+        }
+      },
+      "DataTables.AspNet.AspNetCore/2.0.2": {
+        "dependencies": {
+          "DataTables.AspNet.Core": "2.0.2",
+          "Microsoft.AspNetCore.Mvc": "2.2.0",
+          "NETStandard.Library": "2.0.3",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/netstandard1.6/DataTables.AspNet.AspNetCore.dll": {
+            "assemblyVersion": "2.0.2.0",
+            "fileVersion": "2.0.2.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.6/DataTables.AspNet.AspNetCore.dll": {}
+        }
+      },
+      "DataTables.AspNet.Core/2.0.2": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.3"
+        },
+        "runtime": {
+          "lib/netstandard1.1/DataTables.AspNet.Core.dll": {
+            "assemblyVersion": "2.0.2.0",
+            "fileVersion": "2.0.2.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.1/DataTables.AspNet.Core.dll": {}
         }
       },
       "log4net/2.0.11": {
@@ -3628,6 +3660,20 @@
       "sha512": "sha512-T09NoqMZBqw0/JEauXulxnmmerl0Zj03e0r6VCcJ0LURWBIaYxZPPoiDv8bHf5Y4x2xcXJp4JPXoCaeOMJfHEA==",
       "path": "automapper/10.0.0",
       "hashPath": "automapper.10.0.0.nupkg.sha512"
+    },
+    "DataTables.AspNet.AspNetCore/2.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oHP7LFy3+OBLQtqESc6OdUG1lLvSb0zQEu4sSvQhdayZa9u2WdjrXVt6SCqzytOgBZf0NeI5E6ALd6+6E4GogQ==",
+      "path": "datatables.aspnet.aspnetcore/2.0.2",
+      "hashPath": "datatables.aspnet.aspnetcore.2.0.2.nupkg.sha512"
+    },
+    "DataTables.AspNet.Core/2.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZRZoewp8OfbdGMNmz+GaAUugdQ20SaL38PbSsu95cRXeOLOZ2cu9ttft5rgCEbWXhny1Wy9WEW2AP6oZVFAR3A==",
+      "path": "datatables.aspnet.core/2.0.2",
+      "hashPath": "datatables.aspnet.core.2.0.2.nupkg.sha512"
     },
     "log4net/2.0.11": {
       "type": "package",

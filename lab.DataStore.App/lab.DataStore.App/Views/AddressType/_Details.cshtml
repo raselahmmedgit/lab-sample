@@ -1,0 +1,22 @@
+﻿@model lab.DataStore.App.PageViewModels.AddressTypePageViewModel
+<form action="javascript:;" class="form form-horizontal">
+
+    <div class="form-body">
+        <div class="form-group row">
+            @Html.LabelFor(model => model.TypeName, new { @class = "col-md-4 col-sm-4 control-label" })
+            <div class="col-md-8 col-sm-8">
+                <input type="text" id="TypeName" class="form-control" name="TypeName" readonly value="@Model.TypeName">
+            </div>
+        </div>
+
+        <div class="form-actions form-actions-new">
+            <div class="row right">
+                <div class="col-md-12 col-sm-12">
+                    <input type="button" class="btn btn-danger" value="Cancel" onclick="AppModal.CloseCommonModal();" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+

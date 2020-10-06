@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Address Type";
+}
+@section commandnew{
+    <div class="form-group float-right">
+        <a href="javascript:;" data-href="@Url.Action("Create", "AddressType", new { Area = "" })" title="Add" onclick="AppModal.AddCommon(this)" class="btn btn-primary">Add New</a>
+    </div>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <table id="dataTablesAddressType" class="table table-striped" style="width:100%"></table>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/js/addresstype.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            AddressType.LoadDataTables('dataTablesAddressType', App.DisplayLength(), ("/AppBase/AddressType/GetDataAsync"));
+        });
+    </script>
+}

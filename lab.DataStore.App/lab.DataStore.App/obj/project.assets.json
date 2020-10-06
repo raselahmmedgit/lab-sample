@@ -15,6 +15,33 @@
           "lib/netstandard2.0/AutoMapper.dll": {}
         }
       },
+      "DataTables.AspNet.AspNetCore/2.0.2": {
+        "type": "package",
+        "dependencies": {
+          "DataTables.AspNet.Core": "2.0.2",
+          "Microsoft.AspNetCore.Mvc": "1.1.0",
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.6/DataTables.AspNet.AspNetCore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.6/DataTables.AspNet.AspNetCore.dll": {}
+        }
+      },
+      "DataTables.AspNet.Core/2.0.2": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.1/DataTables.AspNet.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/DataTables.AspNet.Core.dll": {}
+        }
+      },
       "log4net/2.0.11": {
         "type": "package",
         "dependencies": {
@@ -4806,6 +4833,32 @@
         "lib/net461/AutoMapper.xml",
         "lib/netstandard2.0/AutoMapper.dll",
         "lib/netstandard2.0/AutoMapper.xml"
+      ]
+    },
+    "DataTables.AspNet.AspNetCore/2.0.2": {
+      "sha512": "oHP7LFy3+OBLQtqESc6OdUG1lLvSb0zQEu4sSvQhdayZa9u2WdjrXVt6SCqzytOgBZf0NeI5E6ALd6+6E4GogQ==",
+      "type": "package",
+      "path": "datatables.aspnet.aspnetcore/2.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "datatables.aspnet.aspnetcore.2.0.2.nupkg.sha512",
+        "datatables.aspnet.aspnetcore.nuspec",
+        "lib/net451/DataTables.AspNet.AspNetCore.dll",
+        "lib/netstandard1.6/DataTables.AspNet.AspNetCore.dll"
+      ]
+    },
+    "DataTables.AspNet.Core/2.0.2": {
+      "sha512": "ZRZoewp8OfbdGMNmz+GaAUugdQ20SaL38PbSsu95cRXeOLOZ2cu9ttft5rgCEbWXhny1Wy9WEW2AP6oZVFAR3A==",
+      "type": "package",
+      "path": "datatables.aspnet.core/2.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "datatables.aspnet.core.2.0.2.nupkg.sha512",
+        "datatables.aspnet.core.nuspec",
+        "lib/net45/DataTables.AspNet.Core.dll",
+        "lib/netstandard1.1/DataTables.AspNet.Core.dll"
       ]
     },
     "log4net/2.0.11": {
@@ -13160,6 +13213,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
       "AutoMapper >= 10.0.0",
+      "DataTables.AspNet.AspNetCore >= 2.0.2",
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
       "Microsoft.NETCore.App >= 2.2.0",
@@ -13212,6 +13266,10 @@
           "AutoMapper": {
             "target": "Package",
             "version": "[10.0.0, )"
+          },
+          "DataTables.AspNet.AspNetCore": {
+            "target": "Package",
+            "version": "[2.0.2, )"
           },
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",
