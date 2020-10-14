@@ -12,6 +12,8 @@ namespace lab.DataStore.App.EntityModels.Type
     {
         [Key]
         public int TypeId { get; set; }
+
+        [Display(Name = "Type Name")]
         [StringLength(120)]
         public string TypeName { get; set; }
     }

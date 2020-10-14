@@ -29,19 +29,19 @@ namespace lab.DataStore.App.BLL
         {
             _configuration = configuration;
             _emailConfiguration = new EmailConfiguration();
-            _emailConfiguration.FromEmailAddress = _configuration["AppEmailConfig:FromEmailAddressKey"].ToString();
-            _emailConfiguration.DisplayName = _configuration["AppEmailConfig:DisplayNameKey"].ToString();
-            _emailConfiguration.Password = _configuration["AppEmailConfig:PasswordKey"].ToString();
-            _emailConfiguration.Host = _configuration["AppEmailConfig:HostKey"].ToString();
+            _emailConfiguration.FromEmailAddress = _configuration["AppEmailConfig:FromEmailAddressKey"]?.ToString();
+            _emailConfiguration.DisplayName = _configuration["AppEmailConfig:DisplayNameKey"]?.ToString();
+            _emailConfiguration.Password = _configuration["AppEmailConfig:PasswordKey"]?.ToString();
+            _emailConfiguration.Host = _configuration["AppEmailConfig:HostKey"]?.ToString();
             _emailConfiguration.Port = Int32.Parse(_configuration["AppEmailConfig:PortKey"]);
             _emailConfiguration.Ssl = Boolean.Parse(_configuration["AppEmailConfig:SslKey"]);
             log.Debug("EmailSenderManager - EmailConfiguration - Username: " + _emailConfiguration.FromEmailAddress);
             log.Debug("EmailSenderManager - EmailConfiguration - Password: " + _emailConfiguration.Password);
 
             _sendGridConfiguration = new SendGridConfiguration();
-            _sendGridConfiguration.FromEmailAddress = _configuration["AppEmailConfig:SendGridFromEmailAddressKey"].ToString();
-            _sendGridConfiguration.DisplayName = _configuration["AppEmailConfig:SendGridDisplayNameKey"].ToString();
-            _sendGridConfiguration.ApiKey = _configuration["AppEmailConfig:SendGridApiKey"].ToString();
+            _sendGridConfiguration.FromEmailAddress = _configuration["AppEmailConfig:SendGridFromEmailAddressKey"]?.ToString();
+            _sendGridConfiguration.DisplayName = _configuration["AppEmailConfig:SendGridDisplayNameKey"]?.ToString();
+            _sendGridConfiguration.ApiKey = _configuration["AppEmailConfig:SendGridApiKey"]?.ToString();
             log.Debug("EmailSenderManager - SendGridConfiguration - SendGrid");
         }
 

@@ -21,6 +21,11 @@ namespace lab.DataStore.App.Controllers
             return View();
         }
 
+        public IActionResult React()
+        {
+            return View();
+        }
+
         public IActionResult Vue()
         {
             return View();

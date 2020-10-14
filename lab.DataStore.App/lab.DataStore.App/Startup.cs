@@ -1,18 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using lab.DataStore.App.Core;
+﻿using lab.DataStore.App.Core;
 using lab.DataStore.App.DataContext;
+using lab.DataStore.App.Helpers;
 using lab.DataStore.App.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json.Serialization;
+using System;
+using System.IO.Compression;
+using System.Linq;
 
 namespace lab.DataStore.App
 {
@@ -28,6 +30,51 @@ namespace lab.DataStore.App
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
+            #region Database
+            services.AddDbContext<AppDbContext>(options =>
+               options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            #endregion
+
+            #region Misc
+            services.AddCors();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddHsts(options =>
+            {
+                options.Preload = true;
+                options.IncludeSubDomains = true;
+                options.MaxAge = TimeSpan.FromDays(60);
+            });
+            services.AddResponseCompression(options =>
+            {
+                options.Providers.Add<GzipCompressionProvider>();
+                options.MimeTypes =
+                    ResponseCompressionDefaults.MimeTypes.Concat(
+                        new[] { "image/svg+xml", "image/jpeg", "image/png", "text/javascript", "application/x-msdownload", "application/x-msdownload" });
+            });
+
+            services.Configure<GzipCompressionProviderOptions>(options =>
+            {
+                options.Level = CompressionLevel.Fastest;
+            });
+            services.AddMvc().AddJsonOptions(opt => { opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver(); });
+
+            services.Configure<RazorViewEngineOptions>(options =>
+            {
+                options.ViewLocationExpanders.Add(new FeaturesViewLocationExpander());
+            });
+
+            #endregion
+
+            #region CookieManager
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+            #endregion
+
             services.AddDistributedMemoryCache();
 
             services.AddSession(options =>
@@ -64,8 +111,8 @@ namespace lab.DataStore.App
             services.Configure<AppEmailConfig>(Configuration.GetSection("AppEmailConfig"));
             services.Configure<AppSmsConfig>(Configuration.GetSection("AppSmsConfig"));
 
+            BootStrapper.Run(services, Configuration);
 
-            BootStrapper.Run();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

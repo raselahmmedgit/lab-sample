@@ -1,19 +1,19 @@
 ﻿using AutoMapper;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace lab.DataStore.App.Mappers
 {
     public static class AutoMapperConfiguration
     {
-        public static IMapper Mapper;
-        public static void RegisterMapper()
+        public static void RegisterMapper(this IServiceCollection services)
         {
             // Auto Mapper Configurations
             var mappingConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new DefaultMappingProfile());
             });
-            Mapper = mappingConfig.CreateMapper();
-            //mappingConfig.AssertConfigurationIsValid();
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
         }
     }
 }

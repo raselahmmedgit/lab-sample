@@ -1,13 +1,13 @@
 ﻿
-var addressTypeObjData;
+var contactProfileObjData;
 
-var AddressType = function () {
+var ContactProfile = function () {
 
     var loadDataTables = function (dataTableId, iDisplayLength, sAjaxSourceUrl) {
 
         $.fn.dataTable.ext.errMode = () => alert('We are facing some problem while processing the current request. Please try again later.');
 
-        addressTypeObjData = $('#' + dataTableId).DataTable({
+        contactProfileObjData = $('#' + dataTableId).DataTable({
             "bJQueryUI": true,
             "bAutoWidth": true,
             "sPaginationType": "full_numbers",
@@ -52,9 +52,9 @@ var AddressType = function () {
                     searchable: false,
                     "mRender": function (data, type, row) {
 
-                        return '<a href="javascript:;" data-href=\"/AddressType/Details/' + row.typeId + '\" data-name="' + row.typeName + '" data-id="' + row.typeId + '" title="Details" onclick="AppModal.DetailsCommon(this)" class="btn btn-success lnkDetailCommon">Details</a>'
-                            + ' <a href="javascript:;" data-href=\"/AddressType/Edit/' + row.typeId + '\" data-name="' + row.typeName + '" data-id="' + row.typeId + '" title="Edit" onclick="AppModal.EditCommon(this)" style="margin-left: 5px;" class="btn btn-warning lnkEditCommon">Edit</a>'
-                            + ' <a href="javascript:;" data-href=\"/AddressType/Delete/' + row.typeId + '\" data-name="' + row.typeName + '" data-id="' + row.typeId + '" title="Delete" onclick="AppModal.DeleteCommon(this)" style="margin-left: 5px;" class="btn btn-danger lnkDeleteCommon">Delete</a>';
+                        return '<a href="javascript:;" data-href=\"/ContactProfile/Details/' + row.typeId + '\" data-name="' + row.typeName + '" data-id="' + row.typeId + '" title="Details" onclick="AppModal.DetailsCommon(this)" class="btn btn-success lnkDetailCommon">Details</a>'
+                            + ' <a href="javascript:;" data-href=\"/ContactProfile/Edit/' + row.typeId + '\" data-name="' + row.typeName + '" data-id="' + row.typeId + '" title="Edit" onclick="AppModal.EditCommon(this)" style="margin-left: 5px;" class="btn btn-warning lnkEditCommon">Edit</a>'
+                            + ' <a href="javascript:;" data-href=\"/ContactProfile/Delete/' + row.typeId + '\" data-name="' + row.typeName + '" data-id="' + row.typeId + '" title="Delete" onclick="AppModal.DeleteCommon(this)" style="margin-left: 5px;" class="btn btn-danger lnkDeleteCommon">Delete</a>';
                         //return data;
 
                     },

@@ -10,6 +10,8 @@ namespace lab.DataStore.App.ViewModels
     {
         [Key]
         public int TypeId { get; set; }
+
+        [Display(Name = "Type Name")]
         [StringLength(120)]
         public string TypeName { get; set; }
     }

@@ -1,5 +1,9 @@
-﻿using lab.DataStore.App.DataContext;
+﻿using DataTables.AspNet.AspNetCore;
+using lab.DataStore.App.BLL;
+using lab.DataStore.App.DataContext;
 using lab.DataStore.App.Mappers;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,16 +13,26 @@ namespace lab.DataStore.App
 {
     public class BootStrapper
     {
-        public static void Run()
+        private static IConfiguration _configuration;
+
+        public static void Run(IServiceCollection services, IConfiguration configuration)
         {
             try
             {
-                //AutoMapper registration
-                AutoMapperConfiguration.RegisterMapper();
+                _configuration = configuration;
 
-                InitializeAndSeedDb();
+                //AutoMapper registration
+                services.RegisterMapper();
+
+                // DataTables.AspNet registration with default options.
+                services.RegisterDataTables();
+
+                ////Email Sender
+                //new EmailSenderManager(_configuration);
+
+                //InitializeAndSeedDb();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -29,15 +43,28 @@ namespace lab.DataStore.App
         {
             try
             {
-                using (var context = new AppDbContext())
+                bool isDatabaseCreate = Convert.ToBoolean(_configuration["AppConfig:IsDatabaseCreate"]);
+                bool isMasterDataInsert = Convert.ToBoolean(_configuration["AppConfig:IsMasterDataInsert"]);
+
+                if (isDatabaseCreate == false)
                 {
-                    context.Database.EnsureCreated();
-                    //Generate Seed Data
-                    if (context.ApplicationSetting.Count() == 0)
+                    using (var context = new AppDbContext())
                     {
-                        AppDbSeed.Seed(context);
+                        context.Database.EnsureCreated();
+
+                        if (isMasterDataInsert == false)
+                        {
+                            //Generate Seed Data
+                            if (context.ApplicationSetting.Count() == 0)
+                            {
+                                AppDbSeed.Seed(context);
+                            }
+                        }
+                            
                     }
                 }
+
+                
             }
             catch (Exception ex)
             {
