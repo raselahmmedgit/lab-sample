@@ -36,7 +36,6 @@ C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\o
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\PictureType\Edit.g.cshtml.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\PictureType\Index.g.cshtml.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
-C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Error.g.cshtml.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ErrorModal.g.cshtml.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ErrorRenderModal.g.cshtml.cs
@@ -53,3 +52,5 @@ C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\o
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LayoutLogin.g.cshtml.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\lab.DataStore.App.csprojAssemblyReference.cache
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
+C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_AppFooterCssScript.g.cshtml.cs
+C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_AppHeaderCssScript.g.cshtml.cs

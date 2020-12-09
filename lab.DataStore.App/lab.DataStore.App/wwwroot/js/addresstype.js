@@ -58,7 +58,7 @@ var AddressType = function () {
                         //return data;
 
                     },
-                    width: "22%"
+                    width: "24%"
                 }
             ]
 

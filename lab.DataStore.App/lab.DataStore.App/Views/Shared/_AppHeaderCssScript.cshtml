@@ -1,0 +1,23 @@
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, minimal-ui" />
+<meta name="description" content="@Configuration["AppConfig:AppCopyrightText"]" />
+<meta name="keywords" content="@Configuration["AppConfig:AppCopyrightText"]" />
+<meta name="author" content="@Configuration["AppConfig:AppCopyrightText"]" />
+<link rel="icon" href="/images/icons/@Configuration["AppConfig:AppPrefix"]-fav-icon.png" type="image/png" sizes="16x16">
+<title>@ViewData["Title"] - Angular.React.Vue</title>
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<link href="~/lib/toastr/css/toastr.css" rel="stylesheet" />
+<link href="~/lib/bootstrap-datetimepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
+
+<!-- begin datatable css-->
+<link href="~/lib/jquery-datatable/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+<!-- end datatable css-->
+<!-- begin theames js-->
+<!-- end theames js-->
+
+<link href="~/css/site.css" rel="stylesheet" />
+<link href="~/css/style.css" rel="stylesheet" />

@@ -1,5 +1,6 @@
 ﻿using DataTables.AspNet.AspNetCore;
 using lab.DataStore.App.BLL;
+using lab.DataStore.App.DAL;
 using lab.DataStore.App.DataContext;
 using lab.DataStore.App.Mappers;
 using Microsoft.Extensions.Configuration;
@@ -14,12 +15,14 @@ namespace lab.DataStore.App
     public class BootStrapper
     {
         private static IConfiguration _configuration;
+        private static IServiceCollection _services;
 
         public static void Run(IServiceCollection services, IConfiguration configuration)
         {
             try
             {
                 _configuration = configuration;
+                _services = services;
 
                 //AutoMapper registration
                 services.RegisterMapper();
@@ -27,10 +30,28 @@ namespace lab.DataStore.App
                 // DataTables.AspNet registration with default options.
                 services.RegisterDataTables();
 
-                ////Email Sender
-                //new EmailSenderManager(_configuration);
+                //Service AddScoped
+                InitializeAddScoped(services);
 
+                ////Email Sender
+                //new EmailSenderManager(configuration);
+
+                ////Create Database
                 //InitializeAndSeedDb();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
+
+        private static void InitializeAddScoped(IServiceCollection services)
+        {
+            try
+            {
+                services.AddScoped<IAddressTypeManager, AddressTypeManager>();
+                services.AddScoped<IAddressTypeRepository, AddressTypeRepository>();
             }
             catch (Exception)
             {
@@ -66,7 +87,7 @@ namespace lab.DataStore.App
 
                 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }

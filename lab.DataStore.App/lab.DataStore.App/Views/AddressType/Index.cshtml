@@ -1,12 +1,13 @@
 ﻿@{
     ViewData["Title"] = "Address Type";
 }
-@section commandnew{
-    <div class="form-group float-right">
-        <a href="javascript:;" data-href="@Url.Action("Create", "AddressType", new { Area = "" })" title="Add" onclick="AppModal.AddCommon(this)" class="btn btn-primary">Add New</a>
+<div class="row">
+    <div class="col-md-12">
+        <div class="float-right" style="margin-bottom: 20px;">
+            <a href="javascript:;" data-href="@Url.Action("Create", "AddressType", new { Area = "" })" title="Add" onclick="AppModal.AddCommon(this)" class="btn btn-primary">Add New</a>
+        </div>
     </div>
-}
-
+</div>
 <div class="row">
     <div class="col-md-12">
         <div class="card">
