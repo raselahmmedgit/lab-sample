@@ -53,8 +53,8 @@ var AddressType = function () {
                     "mRender": function (data, type, row) {
 
                         return '<a href="javascript:;" data-href=\"/AddressType/Details/' + row.typeId + '\" data-name="' + row.typeName + '" data-id="' + row.typeId + '" title="Details" onclick="AppModal.DetailsCommon(this)" class="btn btn-sm btn-success lnkDetailCommon">Details</a>'
-                            + ' <a href="javascript:;" data-href=\"/AddressType/Edit/' + row.typeId + '\" data-name="' + row.typeName + '" data-id="' + row.typeId + '" title="Edit" onclick="AppModal.EditCommon(this)" style="margin-left: 5px;" class="btn btn-sm btn-warning lnkEditCommon">Edit</a>'
-                            + ' <a href="javascript:;" data-href=\"/AddressType/Delete/' + row.typeId + '\" data-name="' + row.typeName + '" data-id="' + row.typeId + '" title="Delete" onclick="AppModal.DeleteCommon(this)" style="margin-left: 5px;" class="btn btn-sm btn-danger lnkDeleteCommon">Delete</a>';
+                            + ' <a href="javascript:;" data-href=\"/AddressType/Edit/' + row.typeId + '\" data-name="' + row.typeName + '" data-id="' + row.typeId + '" title="Edit" onclick="AppModal.EditCommon(this)" class="btn btn-sm btn-warning ml5 lnkEditCommon">Edit</a>'
+                            + ' <a href="javascript:;" data-href=\"/AddressType/Delete/' + row.typeId + '\" data-name="' + row.typeName + '" data-id="' + row.typeId + '" title="Delete" onclick="AppModal.DeleteCommon(this)" class="btn btn-sm btn-danger ml5 lnkDeleteCommon">Delete</a>';
                         //return data;
 
                     },

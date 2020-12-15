@@ -16,13 +16,17 @@ namespace lab.DataStore.App.ViewModels
         public string LastName { get; set; }
         [StringLength(500)]
         public string PreferredName { get; set; }
+        [StringLength(500)]
+        public string ContactProfileFullName => string.IsNullOrEmpty(PreferredName) ? (FirstName + " " + LastName)?.Trim() : PreferredName;
         public Guid? AddressId { get; set; }
         public string PrimaryPassword { get; set; }
         public bool IsDeactivated { get; set; }
         public Guid? ProfilePictureId { get; set; }
         public bool EmailAllowed { get; set; }
         public bool SmsAllowed { get; set; }
+        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime RegistrationDate { get; set; }
+        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? DateOfBirth { get; set; }
         public int GenderTypeId { get; set; }
         public bool IsArchived { get; set; }

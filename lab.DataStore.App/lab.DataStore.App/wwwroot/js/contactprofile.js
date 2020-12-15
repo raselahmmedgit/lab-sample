@@ -38,23 +38,23 @@ var ContactProfile = function () {
             ajax: sAjaxSourceUrl,
             columns: [
                 {
-                    name: 'TypeName',
-                    data: 'typeName',
-                    title: "Type Name",
+                    name: 'ContactProfileFullName',
+                    data: 'contactProfileFullName',
+                    title: "Name",
                     sortable: false,
                     searchable: false
                 },
                 {
-                    name: 'TypeId',
-                    data: "typeId",
+                    name: 'Id',
+                    data: "id",
                     title: "Actions",
                     sortable: false,
                     searchable: false,
                     "mRender": function (data, type, row) {
 
-                        return '<a href="javascript:;" data-href=\"/ContactProfile/Details/' + row.typeId + '\" data-name="' + row.typeName + '" data-id="' + row.typeId + '" title="Details" onclick="AppModal.DetailsCommon(this)" class="btn btn-sm btn-success lnkDetailCommon">Details</a>'
-                            + ' <a href="javascript:;" data-href=\"/ContactProfile/Edit/' + row.typeId + '\" data-name="' + row.typeName + '" data-id="' + row.typeId + '" title="Edit" onclick="AppModal.EditCommon(this)" style="margin-left: 5px;" class="btn btn-sm btn-warning lnkEditCommon">Edit</a>'
-                            + ' <a href="javascript:;" data-href=\"/ContactProfile/Delete/' + row.typeId + '\" data-name="' + row.typeName + '" data-id="' + row.typeId + '" title="Delete" onclick="AppModal.DeleteCommon(this)" style="margin-left: 5px;" class="btn btn-sm btn-danger lnkDeleteCommon">Delete</a>';
+                        return '<a href=\"/ContactProfile/Details/' + row.id + '\" data-href=\"/ContactProfile/Details/' + row.id + '\" data-name="' + row.contactProfileFullName + '" data-id="' + row.id + '" title="Details" class="btn btn-sm btn-success lnkDetailCommon">Details</a>'
+                            + ' <a href=\"/ContactProfile/Edit/' + row.id + '\" data-href=\"/ContactProfile/Edit/' + row.id + '\" data-name="' + row.contactProfileFullName + '" data-id="' + row.id + '" title="Edit" class="btn btn-sm btn-warning ml5 lnkEditCommon">Edit</a>'
+                            + ' <a href="javascript:;" data-href=\"/ContactProfile/Delete/' + row.id + '\" data-name="' + row.contactProfileFullName + '" data-id="' + row.id + '" title="Delete" onclick="AppModal.DeleteCommon(this)" class="btn btn-sm btn-danger ml5 lnkDeleteCommon">Delete</a>';
                         //return data;
 
                     },

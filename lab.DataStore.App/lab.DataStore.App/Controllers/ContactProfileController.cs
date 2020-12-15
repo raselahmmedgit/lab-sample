@@ -5,151 +5,224 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using lab.DataStore.App.EntityModels;
+using lab.DataStore.App.EntityModels.Type;
 using lab.DataStore.App.Models;
 using lab.DataStore.App.DataContext;
+using Microsoft.Extensions.Logging;
+using AutoMapper;
+using lab.DataStore.App.BLL;
+using DataTables.AspNet.Core;
+using DataTables.AspNet.AspNetCore;
+using lab.DataStore.App.PageViewModels;
+using lab.DataStore.App.ViewModels;
+using lab.DataStore.App.Helpers;
+using lab.DataStore.App.EntityModels;
 
 namespace lab.DataStore.App.Controllers
 {
-    public class ContactProfileController : Controller
+    public class ContactProfileController : BaseController
     {
+        #region Global Variable Declaration
+        private readonly ILogger<ContactProfileController> _logger;
+        private readonly IMapper _iMapper;
+        private readonly IContactProfileManager _iContactProfileManager;
+        private readonly IAddressTypeManager _iAddressTypeManager;
         private readonly AppDbContext _context;
+        #endregion
 
-        public ContactProfileController(AppDbContext context)
+        #region Constructor
+        public ContactProfileController(ILogger<ContactProfileController> logger
+            , IMapper iMapper
+            , IContactProfileManager iContactProfileManager
+            , IAddressTypeManager iAddressTypeManager
+            , AppDbContext context)
         {
+            _logger = logger;
+            _logger.LogInformation("ContactProfileController instance created...");
+            _iMapper = iMapper;
+            _iContactProfileManager = iContactProfileManager;
+            _iAddressTypeManager = iAddressTypeManager;
             _context = context;
         }
+        #endregion
 
-        // GET: ContactProfile
-        public async Task<IActionResult> Index()
+        #region Actions
+
+        public IActionResult Index()
         {
-            return View(await _context.ContactProfile.ToListAsync());
+            try
+            {
+                return View();
+            }
+            catch (Exception ex)
+            {
+                return ErrorView(ex);
+            }
         }
 
-        // GET: ContactProfile/Details/5
-        public async Task<IActionResult> Details(Guid? id)
+        public async Task<IActionResult> GetDataAsync(IDataTablesRequest request)
         {
-            if (id == null)
+            try
             {
-                return NotFound();
+                DataTablesResponse response = await _iContactProfileManager.GetDataTablesResponseAsync(request);
+                return new DataTablesJsonResult(response, true);
             }
-
-            var contactProfile = await _context.ContactProfile
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (contactProfile == null)
+            catch (Exception ex)
             {
-                return NotFound();
+                return ErrorPartialView(ex);
             }
-
-            return View(contactProfile);
         }
 
-        // GET: ContactProfile/Create
+        public async Task<IActionResult> Details(Guid id)
+        {
+            try
+            {
+                var contactProfileViewModel = await _iContactProfileManager.GetContactProfileAsync(id);
+                var model = _iMapper.Map<ContactProfileViewModel, ContactProfilePageViewModel>(contactProfileViewModel);
+
+                if (model != null)
+                {
+                    return View(model);
+                }
+                else
+                {
+                    return ErrorView(ExceptionHelper.ExceptionErrorMessageForNullObject());
+                }
+            }
+            catch (Exception ex)
+            {
+                return ErrorView(ex);
+            }
+        }
+
         public IActionResult Create()
         {
-            return View();
+            try
+            {
+                var model = new ContactProfilePageViewModel();
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                return ErrorView(ex);
+            }
         }
 
-        // POST: ContactProfile/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("FirstName,LastName,PreferredName,AddressId,PrimaryPassword,IsDeactivated,ProfilePictureId,EmailAllowed,SmsAllowed,RegistrationDate,DateOfBirth,GenderTypeId,IsArchived,CreatedDate,CreatedBy,UpdatedDate,UpdatedBy,IsDeleted,DeletedBy,DeletedDate,Id")] ContactProfile contactProfile)
         {
-            if (ModelState.IsValid)
+            try
             {
-                contactProfile.Id = Guid.NewGuid();
-                _context.Add(contactProfile);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    contactProfile.Id = Guid.NewGuid();
+                    _context.Add(contactProfile);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(contactProfile);
             }
-            return View(contactProfile);
+            catch (Exception ex)
+            {
+                return ErrorView(ex);
+            }
         }
 
-        // GET: ContactProfile/Edit/5
-        public async Task<IActionResult> Edit(Guid? id)
+        public async Task<IActionResult> Edit(Guid id)
         {
-            if (id == null)
+            try
             {
-                return NotFound();
-            }
+                var contactProfileViewModel = await _iContactProfileManager.GetContactProfileAsync(id);
+                var model = _iMapper.Map<ContactProfileViewModel, ContactProfilePageViewModel>(contactProfileViewModel);
 
-            var contactProfile = await _context.ContactProfile.FindAsync(id);
-            if (contactProfile == null)
-            {
-                return NotFound();
+                if (model != null)
+                {
+                    return View(model);
+                }
+                else
+                {
+                    return ErrorView(ExceptionHelper.ExceptionErrorMessageForNullObject());
+                }
             }
-            return View(contactProfile);
+            catch (Exception ex)
+            {
+                return ErrorView(ex);
+            }
         }
 
-        // POST: ContactProfile/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, [Bind("FirstName,LastName,PreferredName,AddressId,PrimaryPassword,IsDeactivated,ProfilePictureId,EmailAllowed,SmsAllowed,RegistrationDate,DateOfBirth,GenderTypeId,IsArchived,CreatedDate,CreatedBy,UpdatedDate,UpdatedBy,IsDeleted,DeletedBy,DeletedDate,Id")] ContactProfile contactProfile)
         {
-            if (id != contactProfile.Id)
+            try
             {
-                return NotFound();
-            }
+                var contactProfileViewModel = await _iContactProfileManager.GetContactProfileAsync(id);
+                var model = _iMapper.Map<ContactProfileViewModel, ContactProfilePageViewModel>(contactProfileViewModel);
 
-            if (ModelState.IsValid)
-            {
-                try
+                if (id == contactProfile.Id)
                 {
-                    _context.Update(contactProfile);
-                    await _context.SaveChangesAsync();
+                    if (ModelState.IsValid)
+                    {
+                        try
+                        {
+                            _context.Update(contactProfile);
+                            await _context.SaveChangesAsync();
+                        }
+                        catch (DbUpdateConcurrencyException)
+                        {
+                            if (!ContactProfileExists(contactProfile.Id))
+                            {
+                                return NotFound();
+                            }
+                            else
+                            {
+                                throw;
+                            }
+                        }
+                        return RedirectToAction(nameof(Index));
+                    }
+                    return View(contactProfile);
                 }
-                catch (DbUpdateConcurrencyException)
+                else
                 {
-                    if (!ContactProfileExists(contactProfile.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    return ErrorView(ExceptionHelper.ExceptionErrorMessageForNullObject());
                 }
-                return RedirectToAction(nameof(Index));
             }
-            return View(contactProfile);
+            catch (Exception ex)
+            {
+                return ErrorView(ex);
+            }
         }
 
-        // GET: ContactProfile/Delete/5
-        public async Task<IActionResult> Delete(Guid? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var contactProfile = await _context.ContactProfile
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (contactProfile == null)
-            {
-                return NotFound();
-            }
-
-            return View(contactProfile);
-        }
-
-        // POST: ContactProfile/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        public async Task<IActionResult> Delete(Guid id)
         {
-            var contactProfile = await _context.ContactProfile.FindAsync(id);
-            _context.ContactProfile.Remove(contactProfile);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                if (id != null || id != Guid.Empty)
+                {
+                    _result = await _iContactProfileManager.DeleteContactProfileAsync(id);
+                }
+                else
+                {
+                    _result = Result.Fail(MessageHelper.DeleteFail);
+                }
+
+                return JsonResult(_result);
+            }
+            catch (Exception ex)
+            {
+                return JsonResult(ex);
+            }
         }
 
         private bool ContactProfileExists(Guid id)
         {
             return _context.ContactProfile.Any(e => e.Id == id);
         }
+
+        #endregion
     }
 }

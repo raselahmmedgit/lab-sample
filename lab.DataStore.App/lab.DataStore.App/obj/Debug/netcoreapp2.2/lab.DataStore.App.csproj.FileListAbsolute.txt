@@ -50,7 +50,6 @@ C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\o
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\lab.DataStore.App.pdb
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\lab.DataStore.App.csproj.CopyComplete
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LayoutLogin.g.cshtml.cs
-C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\lab.DataStore.App.csprojAssemblyReference.cache
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_AppFooterCssScript.g.cshtml.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_AppHeaderCssScript.g.cshtml.cs
