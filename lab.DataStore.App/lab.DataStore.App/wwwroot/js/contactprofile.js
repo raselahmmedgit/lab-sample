@@ -52,13 +52,13 @@ var ContactProfile = function () {
                     searchable: false,
                     "mRender": function (data, type, row) {
 
-                        return '<a href="javascript:;" data-href=\"/ContactProfile/Details/' + row.typeId + '\" data-name="' + row.typeName + '" data-id="' + row.typeId + '" title="Details" onclick="AppModal.DetailsCommon(this)" class="btn btn-success lnkDetailCommon">Details</a>'
-                            + ' <a href="javascript:;" data-href=\"/ContactProfile/Edit/' + row.typeId + '\" data-name="' + row.typeName + '" data-id="' + row.typeId + '" title="Edit" onclick="AppModal.EditCommon(this)" style="margin-left: 5px;" class="btn btn-warning lnkEditCommon">Edit</a>'
-                            + ' <a href="javascript:;" data-href=\"/ContactProfile/Delete/' + row.typeId + '\" data-name="' + row.typeName + '" data-id="' + row.typeId + '" title="Delete" onclick="AppModal.DeleteCommon(this)" style="margin-left: 5px;" class="btn btn-danger lnkDeleteCommon">Delete</a>';
+                        return '<a href="javascript:;" data-href=\"/ContactProfile/Details/' + row.typeId + '\" data-name="' + row.typeName + '" data-id="' + row.typeId + '" title="Details" onclick="AppModal.DetailsCommon(this)" class="btn btn-sm btn-success lnkDetailCommon">Details</a>'
+                            + ' <a href="javascript:;" data-href=\"/ContactProfile/Edit/' + row.typeId + '\" data-name="' + row.typeName + '" data-id="' + row.typeId + '" title="Edit" onclick="AppModal.EditCommon(this)" style="margin-left: 5px;" class="btn btn-sm btn-warning lnkEditCommon">Edit</a>'
+                            + ' <a href="javascript:;" data-href=\"/ContactProfile/Delete/' + row.typeId + '\" data-name="' + row.typeName + '" data-id="' + row.typeId + '" title="Delete" onclick="AppModal.DeleteCommon(this)" style="margin-left: 5px;" class="btn btn-sm btn-danger lnkDeleteCommon">Delete</a>';
                         //return data;
 
                     },
-                    width: "22%"
+                    width: "20%"
                 }
             ]
 
