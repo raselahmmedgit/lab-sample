@@ -63,6 +63,35 @@ namespace lab.DataStore.App.Helper
             return strMessage;
         }
 
+        public static string FormateMessageForException(Exception ex, string methodName)
+        {
+            string strMessage = string.Empty; ;
+
+            string exceptionMessage = "";// ex.Message;
+            //string innerExceptionMessage = ""; // ex.InnerException != null ? ex.InnerException.Message : "";
+            if (ex.InnerException != null)
+            {
+                if (ex.InnerException.InnerException != null)
+                {
+                    exceptionMessage = ex.InnerException.InnerException.Message;
+                }
+                else
+                {
+                    exceptionMessage = ex.InnerException.Message;
+                }
+            }
+            else if (ex.Message != null)
+            {
+                exceptionMessage = ex.Message;
+            }
+
+            string stackTraceMessage = ex.StackTrace != null ? ex.StackTrace.ToString() : "";
+
+            strMessage = $"Description: Error!, MethodName: {methodName}, Exception: {exceptionMessage}, StackTrace: {stackTraceMessage}";
+
+            return strMessage;
+        }
+
         public static string LogFormattedMessageForRequestStart(string actionName, string loginAppUserId, string AdditionalInfo = "")
         {
             string message = $"Request start on Action: {actionName}, LoginAppUserId = {loginAppUserId}";

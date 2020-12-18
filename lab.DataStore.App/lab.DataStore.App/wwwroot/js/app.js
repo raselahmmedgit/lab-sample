@@ -438,6 +438,13 @@ var App = function () {
     //end Ajax Post Methods
     //-----------------------------------------------------
 
+    var toJavaScriptDate = function (value) {
+        var pattern = /Date\(([^)]+)\)/;
+        var results = pattern.exec(value);
+        var dt = new Date(parseFloat(results[1]));
+        return (dt.getMonth() + 1) + "/" + dt.getDate() + "/" + dt.getFullYear();
+    }
+
     return {
         Init: initializeApp,
         LoaderShow: loaderShow,
@@ -462,6 +469,7 @@ var App = function () {
         AjaxJsonPostWithParam: ajaxJsonPostWithParam,
         AjaxJsonPostForDeleteWithParam: ajaxJsonPostForDeleteWithParam,
         ToCamelCase: toCamelCase,
+        ToJavaScriptDate: toJavaScriptDate,
         AppAreaName: appAreaName
     };
 }();
