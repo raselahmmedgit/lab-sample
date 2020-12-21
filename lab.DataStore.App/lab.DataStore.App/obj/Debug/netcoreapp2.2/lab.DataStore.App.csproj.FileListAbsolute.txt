@@ -60,3 +60,5 @@ C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\o
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Home\DhtmlxScheduler.cshtml.g.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LayoutDhtmlxScheduler.cshtml.g.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\lab.DataStore.App.csprojAssemblyReference.cache
+C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Home\TheThirdMeal.cshtml.g.cs
+C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LayoutTheThirdMeal.cshtml.g.cs

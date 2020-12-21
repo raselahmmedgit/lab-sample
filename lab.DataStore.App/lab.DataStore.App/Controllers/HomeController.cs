@@ -55,6 +55,11 @@ namespace lab.DataStore.App.Controllers
             return View();
         }
 
+        public IActionResult TheThirdMeal()
+        {
+            return View();
+        }
+
         [HttpGet]
         public IActionResult GetDhtmlxScheduler()
         {
