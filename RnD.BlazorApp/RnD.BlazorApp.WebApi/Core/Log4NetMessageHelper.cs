@@ -7,7 +7,7 @@ namespace RnD.BlazorApp.WebApi.Core
 {
     public static class Log4NetMessageHelper
     {
-        public static string FormateMessage(string description, string methodName, string userId, string status = "", string message = "")
+        public static string FormateMessage(string description, string methodName, string userId = "Anonymous User", string status = "", string message = "")
         {
             string strMessage = string.Empty; ;
 
@@ -16,26 +16,25 @@ namespace RnD.BlazorApp.WebApi.Core
             return strMessage;
         }
 
-        public static string FormateMessageForStart(string methodName, string userId, string status = "", string message = "")
+        public static string FormateMessageForStart(string methodName, string userId = "Anonymous User", string status = "", string message = "")
         {
             string strMessage = string.Empty; ;
 
-            strMessage = $"Description: Request start, MethodName: {methodName}, Message: {message}, Status: {status}, UserId: {userId}, RequestDateTimeUtc: {DateTime.UtcNow}";
+            strMessage = $"Description: Request Start, MethodName: {methodName}, Message: {message}, Status: {status}, UserId: {userId}, RequestDateTimeUtc: {DateTime.UtcNow}";
 
             return strMessage;
         }
 
-
-        public static string FormateMessageForEnd(string methodName, string userId, string status = "", string message = "")
+        public static string FormateMessageForEnd(string methodName, string userId = "Anonymous User", string status = "", string message = "")
         {
             string strMessage = string.Empty; ;
 
-            strMessage = $"Description: Request end, MethodName: {methodName}, Message: {message}, Status: {status}, UserId: {userId}, RequestDateTimeUtc: {DateTime.UtcNow}";
+            strMessage = $"Description: Request End, MethodName: {methodName}, Message: {message}, Status: {status}, UserId: {userId}, RequestDateTimeUtc: {DateTime.UtcNow}";
 
             return strMessage;
         }
 
-        public static string FormateMessageForException(Exception ex, string methodName, string userId)
+        public static string FormateMessageForException(Exception ex, string methodName, string userId = "Anonymous User")
         {
             string strMessage = string.Empty; ;
 
@@ -93,19 +92,19 @@ namespace RnD.BlazorApp.WebApi.Core
             return strMessage;
         }
 
-        public static string LogFormattedMessageForRequestStart(string actionName, string loginAppUserId, string AdditionalInfo = "")
+        public static string LogFormattedMessageForRequestStart(string actionName, string loginAppUserId = "Anonymous User", string AdditionalInfo = "")
         {
             string message = $"Request start on Action: {actionName}, LoginAppUserId = {loginAppUserId}";
             message += $", Additional info: {AdditionalInfo}";
             return message;
         }
-        public static string LogFormattedMessageForRequestSuccess(string actionName, string loginAppUserId, string AdditionalInfo = "")
+        public static string LogFormattedMessageForRequestSuccess(string actionName, string loginAppUserId = "Anonymous User", string AdditionalInfo = "")
         {
             string message = $"Request successfully completed on Action: {actionName}, LoginAppUserId = {loginAppUserId}";
             message += $", Additional info: {AdditionalInfo}";
             return message;
         }
-        public static string LogFormattedMessageForRequestFailed(string actionName, string loginAppUserId, Exception ex, string AdditionalInfo = "")
+        public static string LogFormattedMessageForRequestFailed(Exception ex, string actionName, string loginAppUserId = "Anonymous User", string AdditionalInfo = "")
         {
             string message = $"Request failied on Action: {actionName}, LoginAppUserId = {loginAppUserId}";
             message += $", Additional info: {AdditionalInfo}";

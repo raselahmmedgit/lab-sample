@@ -6,6 +6,7 @@ using System.Text;
 using Microsoft.Extensions.Configuration;
 using RnD.BlazorApp.WebApi.Models;
 using log4net;
+using RnD.BlazorApp.WebApi.Core;
 
 namespace RnD.BlazorApp.WebApi.Manager
 {
@@ -21,7 +22,7 @@ namespace RnD.BlazorApp.WebApi.Manager
         {
             try
             {
-                _log.Info("GenerateJSONWebToken Start.");
+                _log.Info(Log4NetMessageHelper.FormateMessageForStart("GenerateJsonWebToken"));
 
                 var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
                 var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
@@ -32,7 +33,7 @@ namespace RnD.BlazorApp.WebApi.Manager
                     expires: DateTime.Now.AddMinutes(120),
                     signingCredentials: credentials);
 
-                _log.Info("GenerateJSONWebToken End.");
+                _log.Info(Log4NetMessageHelper.FormateMessageForEnd("GenerateJsonWebToken"));
 
                 return new JwtSecurityTokenHandler().WriteToken(token);
             }
@@ -46,7 +47,7 @@ namespace RnD.BlazorApp.WebApi.Manager
         {
             try
             {
-                _log.Info("AuthenticateUser Start.");
+                _log.Info(Log4NetMessageHelper.FormateMessageForStart("AuthenticateUser"));
 
                 UserModel user = null;
                 var emailAddress = _configuration["AppContactUsConfig:EmailAddress"].ToString();
@@ -66,7 +67,7 @@ namespace RnD.BlazorApp.WebApi.Manager
                     _log.Info("Invalid User.");
                 }
 
-                _log.Info("AuthenticateUser End.");
+                _log.Info(Log4NetMessageHelper.FormateMessageForEnd("AuthenticateUser"));
 
                 return user;
             }

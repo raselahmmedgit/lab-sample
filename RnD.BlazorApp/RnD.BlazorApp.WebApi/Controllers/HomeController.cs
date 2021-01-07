@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using log4net;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using RnD.BlazorApp.WebApi.Core;
 using RnD.BlazorApp.WebApi.Models;
 using System;
 using System.Collections.Generic;
@@ -11,16 +13,31 @@ namespace RnD.BlazorApp.WebApi.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        #region Global Variable Declaration
+        private static readonly ILog _log = LogManager.GetLogger(typeof(HomeController));
+        private Result _result = new Result();
+        #endregion
 
-        public HomeController(ILogger<HomeController> logger)
+        #region Constructor
+        public HomeController()
         {
-            _logger = logger;
         }
+        #endregion
 
+        #region Actions
         public IActionResult Index()
         {
-            return View();
+            try
+            {
+                _log.Info(Log4NetMessageHelper.FormateMessageForStart("Index"));
+
+                return View();
+            }
+            catch (Exception ex)
+            {
+                _log.Error(Log4NetMessageHelper.FormateMessageForException(ex, "Index"));
+                return View("Error");
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -28,5 +45,6 @@ namespace RnD.BlazorApp.WebApi.Controllers
         {
             return View();
         }
+        #endregion
     }
 }
