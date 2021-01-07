@@ -8,6 +8,7 @@ C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\b
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\bin\Debug\netcoreapp2.2\lab.DataStore.App.pdb
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\bin\Debug\netcoreapp2.2\lab.DataStore.App.Views.dll
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\bin\Debug\netcoreapp2.2\lab.DataStore.App.Views.pdb
+C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\lab.DataStore.App.csprojAssemblyReference.cache
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\lab.DataStore.App.AssemblyInfoInputs.cache
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\lab.DataStore.App.AssemblyInfo.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\lab.DataStore.App.csproj.CoreCompileInputs.cache
@@ -30,8 +31,10 @@ C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\o
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\GenderType\Edit.cshtml.g.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\GenderType\Index.cshtml.g.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Home\Angular.cshtml.g.cs
+C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Home\DhtmlxScheduler.cshtml.g.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Home\React.cshtml.g.cs
+C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Home\TheThirdMeal.cshtml.g.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Home\Vue.cshtml.g.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\PictureType\Create.cshtml.g.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\PictureType\Delete.cshtml.g.cs
@@ -45,7 +48,9 @@ C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\o
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ErrorModal.cshtml.g.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ErrorRenderModal.cshtml.g.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LayoutDhtmlxScheduler.cshtml.g.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LayoutLogin.cshtml.g.cs
+C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LayoutTheThirdMeal.cshtml.g.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.cshtml.g.cs
@@ -57,8 +62,3 @@ C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\o
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\lab.DataStore.App.pdb
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\lab.DataStore.App.genruntimeconfig.cache
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\lab.DataStore.App.csproj.CopyComplete
-C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Home\DhtmlxScheduler.cshtml.g.cs
-C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LayoutDhtmlxScheduler.cshtml.g.cs
-C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\lab.DataStore.App.csprojAssemblyReference.cache
-C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Home\TheThirdMeal.cshtml.g.cs
-C:\Users\rasel\Documents\GitHub\lab-sample\lab.DataStore.App\lab.DataStore.App\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LayoutTheThirdMeal.cshtml.g.cs

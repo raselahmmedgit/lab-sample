@@ -149,6 +149,7 @@ C:\Users\rasel\Documents\GitHub\lab-sample\RnD.BlazorApp\RnD.BlazorApp\bin\Debug
 C:\Users\rasel\Documents\GitHub\lab-sample\RnD.BlazorApp\RnD.BlazorApp\bin\Debug\netstandard2.1\System.Text.Encodings.Web.dll
 C:\Users\rasel\Documents\GitHub\lab-sample\RnD.BlazorApp\RnD.BlazorApp\bin\Debug\netstandard2.1\System.Text.Json.dll
 C:\Users\rasel\Documents\GitHub\lab-sample\RnD.BlazorApp\RnD.BlazorApp\bin\Debug\netstandard2.1\System.Threading.Tasks.Extensions.dll
+C:\Users\rasel\Documents\GitHub\lab-sample\RnD.BlazorApp\RnD.BlazorApp\obj\Debug\netstandard2.1\RnD.BlazorApp.csprojAssemblyReference.cache
 C:\Users\rasel\Documents\GitHub\lab-sample\RnD.BlazorApp\RnD.BlazorApp\obj\Debug\netstandard2.1\RnD.BlazorApp.AssemblyInfoInputs.cache
 C:\Users\rasel\Documents\GitHub\lab-sample\RnD.BlazorApp\RnD.BlazorApp\obj\Debug\netstandard2.1\RnD.BlazorApp.AssemblyInfo.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\RnD.BlazorApp\RnD.BlazorApp\obj\Debug\netstandard2.1\RnD.BlazorApp.csproj.CoreCompileInputs.cache
@@ -357,4 +358,3 @@ C:\Users\rasel\Documents\GitHub\lab-sample\RnD.BlazorApp\RnD.BlazorApp\obj\Debug
 C:\Users\rasel\Documents\GitHub\lab-sample\RnD.BlazorApp\RnD.BlazorApp\obj\Debug\netstandard2.1\RnD.BlazorApp.csproj.CopyComplete
 C:\Users\rasel\Documents\GitHub\lab-sample\RnD.BlazorApp\RnD.BlazorApp\obj\Debug\netstandard2.1\RnD.BlazorApp.dll
 C:\Users\rasel\Documents\GitHub\lab-sample\RnD.BlazorApp\RnD.BlazorApp\obj\Debug\netstandard2.1\RnD.BlazorApp.pdb
-C:\Users\rasel\Documents\GitHub\lab-sample\RnD.BlazorApp\RnD.BlazorApp\obj\Debug\netstandard2.1\RnD.BlazorApp.csprojAssemblyReference.cache
