@@ -1,5 +1,6 @@
-﻿using lab.DataStore.App.Helpers;
-using lab.DataStore.App.Models;
+﻿using lab.DataStore.App.Core;
+using lab.DataStore.App.Helpers;
+using lab.DataStore.App.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;

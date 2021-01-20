@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using lab.DataStore.App.DataContext;
+using lab.DataStore.App.EntityModels.Type;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using lab.DataStore.App.EntityModels.Type;
-using lab.DataStore.App.Models;
-using lab.DataStore.App.DataContext;
 
 namespace lab.DataStore.App.Controllers
 {

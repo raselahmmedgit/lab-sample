@@ -1,0 +1,13 @@
+﻿.alert {
+    padding: 10px;
+}
+
+.form-actions {
+    padding: 15px 0px 0px 0px;
+    border-top: 1px solid #dee2e6;
+    text-align: end;
+}
+
+.modal-footer {
+    padding: 15px 15px 0px 0px;
+}

@@ -1,6 +1,6 @@
 ﻿using DataTables.AspNet.AspNetCore;
-using lab.DataStore.App.BLL;
-using lab.DataStore.App.DAL;
+using lab.DataStore.App.Managers;
+using lab.DataStore.App.Repository;
 using lab.DataStore.App.DataContext;
 using lab.DataStore.App.Mappers;
 using Microsoft.Extensions.Configuration;

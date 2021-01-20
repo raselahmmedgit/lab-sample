@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using lab.DataStore.App.EntityModels.Type;
-using lab.DataStore.App.Models;
-using lab.DataStore.App.DataContext;
-using Microsoft.Extensions.Logging;
-using AutoMapper;
-using lab.DataStore.App.BLL;
-using DataTables.AspNet.Core;
+﻿using AutoMapper;
 using DataTables.AspNet.AspNetCore;
+using DataTables.AspNet.Core;
+using lab.DataStore.App.Core;
+using lab.DataStore.App.Helpers;
+using lab.DataStore.App.Managers;
 using lab.DataStore.App.PageViewModels;
 using lab.DataStore.App.ViewModels;
-using lab.DataStore.App.Helpers;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Threading.Tasks;
 
 namespace lab.DataStore.App.Controllers
 {

@@ -1,9 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
-using lab.DataStore.App.Models;
+﻿using lab.DataStore.App.ViewModels;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace lab.DataStore.App.Helpers
 {
