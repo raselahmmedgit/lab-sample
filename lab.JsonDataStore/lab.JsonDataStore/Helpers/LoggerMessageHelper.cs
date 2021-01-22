@@ -2,7 +2,7 @@
 
 namespace lab.JsonDataStore.Helper
 {
-    public static class Log4NetMessageHelper
+    public static class LoggerMessageHelper
     {
         public static string FormateMessage(string description, string methodName, string userId, string status = "", string message = "")
         {

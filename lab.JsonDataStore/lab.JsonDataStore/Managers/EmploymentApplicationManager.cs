@@ -4,8 +4,8 @@ using DataTables.AspNet.Core;
 using lab.JsonDataStore.Core;
 using lab.JsonDataStore.Helpers;
 using lab.JsonDataStore.Models;
+using lab.JsonDataStore.Repository;
 using lab.JsonDataStore.ViewModels;
-using Microsoft.AspNetCore.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,12 +15,12 @@ namespace lab.JsonDataStore.Managers
 {
     public class EmploymentApplicationManager : IEmploymentApplicationManager
     {
-        private readonly JsonDataStoreHelper _jsonDataStoreHelper;
+        private readonly IEmploymentApplicationRepository _employmentApplicationRepository;
         private readonly IMapper _iMapper;
 
-        public EmploymentApplicationManager(IHostingEnvironment iHostingEnvironment, IMapper iMapper)
+        public EmploymentApplicationManager(IEmploymentApplicationRepository employmentApplicationRepository, IMapper iMapper)
         {
-            _jsonDataStoreHelper = new JsonDataStoreHelper(iHostingEnvironment);
+            _employmentApplicationRepository = employmentApplicationRepository;
             _iMapper = iMapper;
         }
 
@@ -28,8 +28,8 @@ namespace lab.JsonDataStore.Managers
         {
             try
             {
-                var data = await _jsonDataStoreHelper.GetEmploymentApplicationAsync(id);
-                return data;
+                var data = await _employmentApplicationRepository.GetEmploymentApplicationAsync(id);
+                return _iMapper.Map<EmploymentApplication, EmploymentApplicationViewModel>(data);
             }
             catch (Exception)
             {
@@ -41,7 +41,8 @@ namespace lab.JsonDataStore.Managers
         {
             try
             {
-                var viewModelList = await _jsonDataStoreHelper.GetEmploymentApplicationsAsync();
+                var modelList = await _employmentApplicationRepository.GetEmploymentApplicationsAsync();
+                var viewModelList = _iMapper.Map<IEnumerable<EmploymentApplication>, IEnumerable<EmploymentApplicationViewModel>>(modelList);
 
                 // Global filtering.
                 // Filter is being manually applied due to in-memmory (IEnumerable) data.
@@ -91,8 +92,8 @@ namespace lab.JsonDataStore.Managers
         {
             try
             {
-                var data = await _jsonDataStoreHelper.GetEmploymentApplicationsAsync();
-                return data;
+                var dataList = await _employmentApplicationRepository.GetEmploymentApplicationsAsync();
+                return _iMapper.Map<List<EmploymentApplication>, List<EmploymentApplicationViewModel>>(dataList);
             }
             catch (Exception)
             {
@@ -100,11 +101,12 @@ namespace lab.JsonDataStore.Managers
             }
         }
 
-        public async Task<Result> InsertEmploymentApplicationAsync(EmploymentApplicationViewModel model)
+        public async Task<Result> InsertEmploymentApplicationAsync(EmploymentApplicationViewModel viewModel)
         {
             try
             {
-                var saveChange = await _jsonDataStoreHelper.InsertEmploymentApplicationAsync(model);
+                var model = _iMapper.Map<EmploymentApplicationViewModel, EmploymentApplication>(viewModel);
+                var saveChange = await _employmentApplicationRepository.InsertEmploymentApplicationAsync(model);
 
                 if (saveChange)
                 {
@@ -115,17 +117,18 @@ namespace lab.JsonDataStore.Managers
                     return Result.Fail(MessageHelper.SaveFail);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
         }
 
-        public async Task<Result> UpdateEmploymentApplicationAsync(EmploymentApplicationViewModel model)
+        public async Task<Result> UpdateEmploymentApplicationAsync(EmploymentApplicationViewModel viewModel)
         {
             try
             {
-                var saveChange = await _jsonDataStoreHelper.UpdateEmploymentApplicationAsync(model);
+                var model = _iMapper.Map<EmploymentApplicationViewModel, EmploymentApplication>(viewModel);
+                var saveChange = await _employmentApplicationRepository.UpdateEmploymentApplicationAsync(model);
 
                 if (saveChange)
                 {
@@ -146,7 +149,7 @@ namespace lab.JsonDataStore.Managers
         {
             try
             {
-                var saveChange = await _jsonDataStoreHelper.DeleteEmploymentApplicationAsync(id);
+                var saveChange = await _employmentApplicationRepository.DeleteEmploymentApplicationAsync(id);
 
                 if (saveChange)
                 {
@@ -169,8 +172,8 @@ namespace lab.JsonDataStore.Managers
         Task<EmploymentApplicationViewModel> GetEmploymentApplicationAsync(string id);
         Task<DataTablesResponse> GetDataTablesResponseAsync(IDataTablesRequest request);
         Task<IEnumerable<EmploymentApplicationViewModel>> GetEmploymentApplicationsAsync();
-        Task<Result> InsertEmploymentApplicationAsync(EmploymentApplicationViewModel model);
-        Task<Result> UpdateEmploymentApplicationAsync(EmploymentApplicationViewModel model);
+        Task<Result> InsertEmploymentApplicationAsync(EmploymentApplicationViewModel viewModel);
+        Task<Result> UpdateEmploymentApplicationAsync(EmploymentApplicationViewModel viewModel);
         Task<Result> DeleteEmploymentApplicationAsync(string id);
     }
 }

@@ -2,6 +2,7 @@ using DataTables.AspNet.AspNetCore;
 using lab.JsonDataStore.Core;
 using lab.JsonDataStore.Managers;
 using lab.JsonDataStore.Mappers;
+using lab.JsonDataStore.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -38,6 +39,7 @@ namespace lab.JsonDataStore
             services.RegisterDataTables();
 
             services.AddScoped<IEmploymentApplicationManager, EmploymentApplicationManager>();
+            services.AddScoped<IEmploymentApplicationRepository, EmploymentApplicationRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,6 +55,17 @@ namespace lab.JsonDataStore
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            #region App_Data
+            // Use this code if you want the App_Data folder to be in wwwroot
+            //string baseDir = env.WebRootPath;
+
+            // Use this if you want App_Data off your project root folder
+            string baseDir = env.ContentRootPath;
+
+            AppDomain.CurrentDomain.SetData("DataDirectory", System.IO.Path.Combine(baseDir, "App_Data"));
+            #endregion
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

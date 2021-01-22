@@ -29,7 +29,7 @@ namespace lab.JsonDataStore.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(Log4NetMessageHelper.FormateMessageForException(ex, "Index"));
+                _logger.LogError(LoggerMessageHelper.FormateMessageForException(ex, "Index"));
                 return ErrorView(ex);
             }
         }
