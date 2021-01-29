@@ -1,0 +1,544 @@
+﻿@{
+    ViewData["Title"] = "Employment Application";
+    Layout = "~/Views/Shared/_LayoutEmployment.cshtml";
+}
+
+<main id="main" data-aos="fade-up">
+    <!-- ======= Employment Application Section ======= -->
+    <section id="employment-application">
+        <div class="container">
+            <form method="POST" asp-action="Application" asp-controller="Employment" id="employment-application-form" class="validate-form form-horizontal">
+                <div class="row content employment-application-form mt-4">
+                    <div class="col-xl-12 col-lg-12 col-md-12 mt-4 mb-4">
+                        <h4>Employment Application</h4>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12">
+                        <div class="form-validation-summary mb-4">
+                            <div asp-validation-summary="None" class="text-danger"></div>
+                        </div>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 mb-4">
+                        <label>* indicates required field</label>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="firstName">First name *</label>
+                        <input type="text" class="form-control" id="firstName" name="firstName" value="" data-val="true" data-val-required="Please enter first name.">
+                        <div class="field-validation-valid" data-valmsg-for="firstName" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastName">Last name *</label>
+                        <input type="text" class="form-control" id="lastName" name="lastName" value="" data-val="true" data-val-required="Please enter last name.">
+                        <div class="field-validation-valid" data-valmsg-for="lastName" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="emailAddress">Email *</label>
+                        <input type="email" class="form-control" id="emailAddress" name="emailAddress" value="" data-val="true" data-val-required="Please enter a valid email address.">
+                        <div class="field-validation-valid" data-valmsg-for="emailAddress" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="phoneNumber">Phone *</label>
+                        <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" value="" data-val="true" data-val-required="Please enter a valid phone number.">
+                        <div class="field-validation-valid" data-valmsg-for="phoneNumber" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="secondaryPhoneNumber">Secondary phone</label>
+                        <input type="text" class="form-control" id="secondaryPhoneNumber" name="secondaryPhoneNumber">
+                        <div class="field-validation-valid" data-valmsg-for="secondaryPhoneNumber" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="referredBy">Referred by</label>
+                        <input type="text" class="form-control" id="referredBy" name="referredBy">
+                        <div class="field-validation-valid" data-valmsg-for="referredBy" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="presentAddress">Present address *</label>
+                        <input type="text" class="form-control" id="presentAddress" name="presentAddress" value="" data-val="true" data-val-required="Please enter present address.">
+                        <div class="field-validation-valid" data-valmsg-for="presentAddress" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="city">City *</label>
+                        <input type="text" class="form-control" id="city" name="city" value="" data-val="true" data-val-required="Please enter city.">
+                        <div class="field-validation-valid" data-valmsg-for="city" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="state">State *</label>
+                        <input type="text" class="form-control" id="state" name="state" value="" data-val="true" data-val-required="Please enter state.">
+                        <div class="field-validation-valid" data-valmsg-for="state" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="ZipCode">ZIP *</label>
+                        <input type="text" class="form-control" id="ZipCode" name="ZipCode" value="" data-val="true" data-val-required="Please enter a valid ZIP.">
+                        <div class="field-validation-valid" data-valmsg-for="ZipCode" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastAddress">Last address</label>
+                        <input type="text" class="form-control" id="lastAddress" name="lastAddress">
+                        <div class="field-validation-valid" data-valmsg-for="lastAddress" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastCity">City</label>
+                        <input type="text" class="form-control" id="lastCity" name="lastCity">
+                        <div class="field-validation-valid" data-valmsg-for="lastCity" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastState">State</label>
+                        <input type="text" class="form-control" id="lastState" name="lastState">
+                        <div class="field-validation-valid" data-valmsg-for="lastState" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastZipCode">ZIP</label>
+                        <input type="text" class="form-control" id="lastZipCode" name="lastZipCode">
+                        <div class="field-validation-valid" data-valmsg-for="lastZipCode" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 mb-4">
+                        <div class="row">
+                            <div class="col-xl-5 col-lg-5 col-md-5">
+                                <label>Are you legally authorized to work in the U.S.?*</label>
+                                <input type="hidden" id="legalInUSA" name="legalInUSA" value="Yes" data-val="true" data-val-required="Please select at least one.">
+                                <div class="field-validation-valid" data-valmsg-for="legalInUSA" data-valmsg-replace="true"></div>
+                            </div>
+                            <div class="col-xl-9 col-lg-9 col-md-9">
+                                <label class="radio-inline mr-4">
+                                    <input type="radio" name="isLegalInUSA" value="Yes" checked> Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="isLegalInUSA" value="No"> No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 mb-4">
+                        <div class="row">
+                            <div class="col-xl-5 col-lg-5 col-md-5">
+                                <label>Are you currently employed?*</label>
+                                <input type="hidden" id="currentlyEmployed" name="currentlyEmployed" value="Yes" data-val="true" data-val-required="Please select at least one.">
+                                <div class="field-validation-valid" data-valmsg-for="currentlyEmployed" data-valmsg-replace="true"></div>
+                            </div>
+                            <div class="col-xl-9 col-lg-9 col-md-9">
+                                <label class="radio-inline mr-4">
+                                    <input type="radio" name="isCurrentlyEmployed" value="Yes" checked> Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="isCurrentlyEmployed" value="No"> No
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 mb-4">
+                        <div class="row">
+                            <div class="col-xl-5 col-lg-5 col-md-5">
+                                <label>If yes, may we contact your employer?*</label>
+                                <input type="hidden" id="canContactYouEmployer" name="canContactYouEmployer" value="Yes" data-val="true" data-val-required="Please select at least one.">
+                                <div class="field-validation-valid" data-valmsg-for="canContactYouEmployer" data-valmsg-replace="true"></div>
+                            </div>
+                            <div class="col-xl-9 col-lg-9 col-md-9">
+                                <label class="radio-inline mr-4">
+                                    <input type="radio" name="isCanContactYouEmployer" value="Yes" checked> Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="isCanContactYouEmployer" value="No"> No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 mb-4">
+                        <hr class="hr-divide" />
+                    </div>
+
+                    <div class="col-xl-12 col-lg-12 col-md-12 mb-4">
+                        <h4>Employment Desired</h4>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="currentlyEmploymentPosition">Position</label>
+                        <input type="text" class="form-control" id="currentlyEmploymentPosition" name="currentlyEmploymentPosition">
+                        <div class="field-validation-valid" data-valmsg-for="currentlyEmploymentPosition" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="salaryDesired">Salary desired</label>
+                        <input type="text" class="form-control" id="salaryDesired" name="salaryDesired">
+                        <div class="field-validation-valid" data-valmsg-for="salaryDesired" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="startDate">Date you can start</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="startDate" name="startDate" />
+                        </div>
+                        <div class="field-validation-valid" data-valmsg-for="startDate" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 mb-4">
+                        <div class="row">
+                            <div class="col-xl-5 col-lg-5 col-md-5">
+                                <label>Ever apply to City Glass Company before?*</label>
+                                <input type="hidden" id="applyBefore" name="applyBefore" value="Yes" data-val="true" data-val-required="Please select at least one.">
+                                <div class="field-validation-valid" data-valmsg-for="applyBefore" data-valmsg-replace="true"></div>
+                            </div>
+                            <div class="col-xl-9 col-lg-9 col-md-9">
+                                <label class="radio-inline mr-4">
+                                    <input type="radio" name="isApplyBefore" value="Yes" checked> Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="isApplyBefore" value="No"> No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 mb-4">
+                        <div class="row">
+                            <div class="col-xl-5 col-lg-5 col-md-5">
+                                <label>Ever work for City Glass Company before?* </label>
+                                <input type="hidden" id="workBefore" name="workBefore" value="Yes" data-val="true" data-val-required="Please select at least one.">
+                                <div class="field-validation-valid" data-valmsg-for="workBefore" data-valmsg-replace="true"></div>
+                            </div>
+                            <div class="col-xl-9 col-lg-9 col-md-9">
+                                <label class="radio-inline mr-4">
+                                    <input type="radio" name="isWorkBefore" value="Yes" checked> Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="isWorkBefore" value="No"> No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="joinDate">If yes, when</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="joinDate" name="joinDate" />
+                        </div>
+                        <div class="field-validation-valid" data-valmsg-for="joinDate" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastSupervisorName">Name of last City Glass supervisor</label>
+                        <input type="text" class="form-control" id="lastSupervisorName" name="lastSupervisorName">
+                        <div class="field-validation-valid" data-valmsg-for="lastSupervisorName" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 mb-4">
+                        <label for="reasonForLeave">Reason for leaving City Glass</label>
+                        <textarea class="form-control" id="reasonForLeave" name="reasonForLeave"></textarea>
+                        <div class="field-validation-valid" data-valmsg-for="reasonForLeave" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 mb-4">
+                        <hr class="hr-divide" />
+                    </div>
+
+                    <div class="col-xl-12 col-lg-12 col-md-12 mb-4">
+                        <h4>Education History</h4>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4 mb-4">
+                        <label for="highSchoolName">High school</label>
+                        <input type="text" class="form-control" id="highSchoolName" name="highSchoolName">
+                        <div class="field-validation-valid" data-valmsg-for="highSchoolName" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4 mb-4">
+                        <label for="collegeName">College</label>
+                        <input type="text" class="form-control" id="collegeName" name="collegeName">
+                        <div class="field-validation-valid" data-valmsg-for="collegeName" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4 mb-4">
+                        <label for="tradeBusinessSchoolName">Trade or business school</label>
+                        <input type="text" class="form-control" id="tradeBusinessSchoolName" name="tradeBusinessSchoolName">
+                        <div class="field-validation-valid" data-valmsg-for="tradeBusinessSchoolName" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 mb-4">
+                        <hr class="hr-divide" />
+                    </div>
+
+                    <div class="col-xl-12 col-lg-12 col-md-12 mb-4">
+                        <h4>General Information</h4>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 mb-4">
+                        <label for="specialStudyResearchWork">Subject of special study/research work</label>
+                        <textarea class="form-control" id="specialStudyResearchWork" name="specialStudyResearchWork"></textarea>
+                        <div class="field-validation-valid" data-valmsg-for="specialStudyResearchWork" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 mb-4">
+                        <label for="specialTrainingCertificationsLicenses">Special training, certifications, licenses</label>
+                        <textarea class="form-control" id="specialTrainingCertificationsLicenses" name="specialTrainingCertificationsLicenses"></textarea>
+                        <div class="field-validation-valid" data-valmsg-for="specialTrainingCertificationsLicenses" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 mb-4">
+                        <label for="specialSkillsLanguages">Special skills, foreign languages, etc...</label>
+                        <textarea class="form-control" id="specialSkillsLanguages" name="specialSkillsLanguages"></textarea>
+                        <div class="field-validation-valid" data-valmsg-for="specialSkillsLanguages" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 mb-4">
+                        <hr class="hr-divide" />
+                    </div>
+
+                    <div class="col-xl-12 col-lg-12 col-md-12 mb-4">
+                        <h4>Military Service Record</h4>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 mb-4">
+                        <div class="row">
+                            <div class="col-xl-4 col-lg-4 col-md-4">
+                                <label>Have you ever served in the U.S. Armed Forces?*</label>
+                                <input type="hidden" id="militaryServiceRecord" name="militaryServiceRecord" value="Yes" data-val="true" data-val-required="Please select at least one.">
+                                <div class="field-validation-valid" data-valmsg-for="militaryServiceRecord" data-valmsg-replace="true"></div>
+                            </div>
+                            <div class="col-xl-9 col-lg-9 col-md-9">
+                                <label class="radio-inline mr-4">
+                                    <input type="radio" name="isMilitaryServiceRecord" checked> Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="isMilitaryServiceRecord"> No
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 mb-4">
+                        <hr class="hr-divide" />
+                    </div>
+
+                    <div class="col-xl-12 col-lg-12 col-md-12 mb-4">
+                        <h4>Former Employers (chronologically list last three employers)</h4>
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerNameOne">Name of Present or Last Employer</label>
+                        <input type="text" class="form-control" id="lastEmployerNameOne" name="lastEmployerNameOne">
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerNameOne" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerJobTitleOne">Job Title</label>
+                        <input type="text" class="form-control" id="lastEmployerJobTitleOne" name="lastEmployerJobTitleOne">
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerJobTitleOne" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerEmailAddressOne">Employer Email</label>
+                        <input type="text" class="form-control" id="lastEmployerEmailAddressOne" name="lastEmployerEmailAddressOne">
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerEmailAddressOne" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerAddressOne">Employer Address</label>
+                        <input type="text" class="form-control" id="lastEmployerAddressOne" name="lastEmployerAddressOne">
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerAddressOne" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerCityOne">City</label>
+                        <input type="text" class="form-control" id="lastEmployerCityOne" name="lastEmployerCityOne">
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerCityOne" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerStateOne">State</label>
+                        <input type="text" class="form-control" id="lastEmployerStateOne" name="lastEmployerStateOne">
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerStateOne" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerZipCodeOne">ZIP</label>
+                        <input type="text" class="form-control" id="lastEmployerZipCodeOne" name="lastEmployerZipCodeOne">
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerZipCodeOne" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerStartDateOne">Starting Date</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="lastEmployerStartDateOne" name="lastEmployerStartDateOne" />
+                        </div>
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerStartDateOne" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerLeaveDateOne">Leaving Date</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="lastEmployerLeaveDateOne" name="lastEmployerLeaveDateOne" />
+                        </div>
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerLeaveDateOne" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerWeeklyStartSalaryOne">Weekly Starting Salary</label>
+                        <input type="text" class="form-control" id="lastEmployerWeeklyStartSalaryOne" name="lastEmployerWeeklyStartSalaryOne">
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerWeeklyStartSalaryOne" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerWeeklyFinalSalaryOne">Weekly Final Salary</label>
+                        <input type="text" class="form-control" id="lastEmployerWeeklyFinalSalaryOne" name="lastEmployerWeeklyFinalSalaryOne">
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerWeeklyFinalSalaryOne" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 mb-4">
+                        <hr class="hr-divide" />
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerNameTwo">Name of Previous Employer</label>
+                        <input type="text" class="form-control" id="lastEmployerNameTwo" name="lastEmployerNameTwo">
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerNameTwo" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerJobTitleTwo">Job Title</label>
+                        <input type="text" class="form-control" id="lastEmployerJobTitleTwo" name="lastEmployerJobTitleTwo">
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerJobTitleTwo" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerEmailAddressTwo">Employer Email</label>
+                        <input type="text" class="form-control" id="lastEmployerEmailAddressTwo" name="lastEmployerEmailAddressTwo">
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerEmailAddressTwo" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerAddressTwo">Employer Address</label>
+                        <input type="text" class="form-control" id="lastEmployerAddressTwo" name="lastEmployerAddressTwo">
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerAddressTwo" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerCityTwo">City</label>
+                        <input type="text" class="form-control" id="lastEmployerCityTwo" name="lastEmployerCityTwo">
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerCityTwo" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerStateTwo">State</label>
+                        <input type="text" class="form-control" id="lastEmployerStateTwo" name="lastEmployerStateTwo">
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerStateTwo" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerZipCodeTwo">ZIP</label>
+                        <input type="text" class="form-control" id="lastEmployerZipCodeTwo" name="lastEmployerZipCodeTwo">
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerZipCodeTwo" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerStartDateTwo">Starting Date</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="lastEmployerStartDateTwo" name="lastEmployerStartDateTwo" />
+                        </div>
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerStartDateTwo" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerLeaveDateTwo">Leaving Date</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="lastEmployerLeaveDateTwo" name="lastEmployerLeaveDateTwo" />
+                        </div>
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerLeaveDateTwo" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerWeeklyStartSalaryTwo">Weekly Starting Salary</label>
+                        <input type="text" class="form-control" id="lastEmployerWeeklyStartSalaryTwo" name="lastEmployerWeeklyStartSalaryTwo">
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerWeeklyStartSalaryTwo" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerWeeklyFinalSalaryTwo">Weekly Final Salary</label>
+                        <input type="text" class="form-control" id="lastEmployerWeeklyFinalSalaryTwo" name="lastEmployerWeeklyFinalSalaryTwo">
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerWeeklyFinalSalaryTwo" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 mb-4">
+                        <hr class="hr-divide" />
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerNameThree">Name of Previous Employer</label>
+                        <input type="text" class="form-control" id="lastEmployerNameThree" name="lastEmployerNameThree">
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerNameThree" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerJobTitleThree">Job Title</label>
+                        <input type="text" class="form-control" id="lastEmployerJobTitleThree" name="lastEmployerJobTitleThree">
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerJobTitleThree" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerEmailAddressThree">Employer Email</label>
+                        <input type="text" class="form-control" id="lastEmployerEmailAddressThree" name="lastEmployerEmailAddressThree">
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerEmailAddressThree" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerAddressThree">Employer Address</label>
+                        <input type="text" class="form-control" id="lastEmployerAddressThree" name="lastEmployerAddressThree">
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerAddressThree" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerCityThree">City</label>
+                        <input type="text" class="form-control" id="lastEmployerCityThree" name="lastEmployerCityThree">
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerCityThree" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerStateThree">State</label>
+                        <input type="text" class="form-control" id="lastEmployerStateThree" name="lastEmployerStateThree">
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerStateThree" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerZipCodeThree">ZIP</label>
+                        <input type="text" class="form-control" id="lastEmployerZipCodeThree" name="lastEmployerZipCodeThree">
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerZipCodeThree" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerStartDateThree">Starting Date</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="lastEmployerStartDateThree" name="lastEmployerStartDateThree" />
+                        </div>
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerStartDateThree" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerLeaveDateThree">Leaving Date</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="lastEmployerLeaveDateThree" name="lastEmployerLeaveDateThree" />
+                        </div>
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerLeaveDateThree" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerWeeklyStartSalaryThree">Weekly Starting Salary</label>
+                        <input type="text" class="form-control" id="lastEmployerWeeklyStartSalaryThree" name="lastEmployerWeeklyStartSalaryThree">
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerWeeklyStartSalaryThree" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4">
+                        <label for="lastEmployerWeeklyFinalSalaryThree">Weekly Final Salary</label>
+                        <input type="text" class="form-control" id="lastEmployerWeeklyFinalSalaryThree" name="lastEmployerWeeklyFinalSalaryThree">
+                        <div class="field-validation-valid" data-valmsg-for="lastEmployerWeeklyFinalSalaryThree" data-valmsg-replace="true"></div>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 mb-4">
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12">
+                                <label>How did you find out about this position?*</label>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12">
+                                <label class="radio-inline mr-4">
+                                    <input type="radio" name="isKnowAboutThisPosition" value="Employment Agency" checked> Employment Agency
+                                </label>
+                                <label class="radio-inline mr-4">
+                                    <input type="radio" name="isKnowAboutThisPosition" value="State Employment Office"> State Employment Office
+                                </label>
+                                <label class="radio-inline mr-4">
+                                    <input type="radio" name="isKnowAboutThisPosition" value="Newspaper"> Newspaper
+                                </label>
+                                <label class="radio-inline mr-4">
+                                    <input type="radio" name="isKnowAboutThisPosition" value="College Placement"> College Placement
+                                </label>
+                                <label class="radio-inline mr-4">
+                                    <input type="radio" name="isKnowAboutThisPosition" value="Friend"> Friend
+                                </label>
+                                <label class="radio-inline mr-4">
+                                    <input type="radio" name="isKnowAboutThisPosition" value="Walk-in"> Walk-in
+                                </label>
+                                <label class="radio-inline mr-4">
+                                    <input type="radio" name="isKnowAboutThisPosition" value="Online Ad"> Online Ad
+                                </label>
+                                <label class="radio-inline mr-4">
+                                    <input type="radio" name="isKnowAboutThisPosition" value="Website"> Website
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="isKnowAboutThisPosition" value="Other"> Other
+                                </label>
+                                <input type="hidden" id="knowAboutThisPosition" name="knowAboutThisPosition" value="Employment Agency" data-val="true" data-val-required="Please select at least one.">
+                                <div class="field-validation-valid" data-valmsg-for="knowAboutThisPosition" data-valmsg-replace="true"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-12 col-lg-12 col-md-12 d-flex mt-4">
+                        <input type="hidden" id="country" name="country" value="United States">
+                        <button class="btn btn-yellow" type="submit" name="submit" style="padding: 5px 20px !important;">Send</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section><!-- End Employment Application Section -->
+
+</main><!-- End #main -->
+
+<partial name="_ContactUsBottomLink" />
+
+@section scripts{
+    <script src="~/js/employmentapplication.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            EmploymentApplication.Init();
+        });
+    </script>
+}

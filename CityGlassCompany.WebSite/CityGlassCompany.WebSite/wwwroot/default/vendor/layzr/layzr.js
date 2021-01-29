@@ -1,0 +1,12 @@
+'use strict'; function Layzr(options) { this._lastScroll = 0; this._ticking = false; this._optionsAttr = options.attr || 'data-layzr'; this._optionsAttrRetina = options.retinaAttr || 'data-layzr-retina'; this._optionsCallback = options.callback || null; this._retina = window.devicePixelRatio > 1 ? true : false; this._imgAttr = this._retina ? this._optionsAttrRetina : this._optionsAttr; this._images = document.getElementsByTagName('img'); document.addEventListener('DOMContentLoaded', this._create(), false); }
+Layzr.prototype._requestScroll = function () { this._lastScroll = window.scrollY || window.pageYOffset; this._requestTick(); }
+Layzr.prototype._requestTick = function () { if (!this._ticking) { requestAnimationFrame(this.update.bind(this)); this._ticking = false; } }
+Layzr.prototype._create = function () { this._requestScroll(); window.addEventListener('scroll', this._requestScroll.bind(this), false); window.addEventListener('resize', this._requestScroll.bind(this), false); }
+Layzr.prototype._destroy = function () { window.removeEventListener('scroll', this._requestScroll.bind(this), false); window.removeEventListener('resize', this._requestScroll.bind(this), false); }
+Layzr.prototype._getOffset = function (element) { var offsetTop = 0; do { if (!isNaN(element.offsetTop)) { offsetTop += element.offsetTop; } } while (element = element.offsetParent); return offsetTop; }
+Layzr.prototype._inViewport = function (imageNode) { var viewportTop = this._lastScroll; var viewportBottom = viewportTop + window.innerHeight; var elementTop = this._getOffset(imageNode); var elementBottom = elementTop + imageNode.offsetHeight; return elementBottom >= viewportTop && elementBottom <= viewportBottom; }
+Layzr.prototype.update = function () {
+    var imagesLength = this._images.length; for (var i = 0; i < imagesLength; i++) { var image = this._images[i]; if (image.hasAttribute(this._imgAttr) || image.hasAttribute(this._optionsAttr)) { if (this._inViewport(image)) { this.reveal(image); } } }
+    this._ticking = false;
+}
+Layzr.prototype.reveal = function (imageNode) { var source = imageNode.getAttribute(this._imgAttr) || imageNode.getAttribute(this._optionsAttr); imageNode.removeAttribute(this._optionsAttr); imageNode.removeAttribute(this._optionsAttrRetina); if (source) { imageNode.setAttribute('src', source); if (typeof this._optionsCallback === 'function') { this._optionsCallback.call(imageNode); } } }

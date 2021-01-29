@@ -184,3 +184,4 @@ C:\Users\rasel\Documents\GitHub\lab-sample\lab.JsonDataStore\lab.JsonDataStore\o
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.JsonDataStore\lab.JsonDataStore\obj\Debug\netcoreapp3.1\Razor\Views\EmploymentApplication\Details.cshtml.g.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.JsonDataStore\lab.JsonDataStore\obj\Debug\netcoreapp3.1\Razor\Views\EmploymentApplication\Edit.cshtml.g.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\lab.JsonDataStore\lab.JsonDataStore\obj\Debug\netcoreapp3.1\Razor\Views\EmploymentApplication\Index.cshtml.g.cs
+C:\Users\rasel\Documents\GitHub\lab-sample\lab.JsonDataStore\lab.JsonDataStore\obj\Debug\netcoreapp3.1\lab.JsonDataStore.csprojAssemblyReference.cache

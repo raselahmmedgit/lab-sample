@@ -1,0 +1,100 @@
+﻿@model IEnumerable<CityGlassCompany.WebSite.ViewModels.EmploymentApplicationViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutEmployment.cshtml";
+}
+
+<main id="main" class="mt-4 min-vh-100">
+    <!-- ======= Section ======= -->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>List</h1>
+                </div>
+                <div class="col-md-12">
+                    <div class="float-right" style="margin-bottom: 20px;">
+                        @*<a href="javascript:;" data-href="@Url.Action("Create", "EmploymentApplication", new { Area = "" })" title="Add" onclick="AppModal.AddCommon(this)" class="btn btn-primary">Add New</a>*@
+                        @*<a href="@Url.Action("Create", "EmploymentApplication", new { Area = "" })" title="Add" class="btn btn-primary">Add New</a>*@
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            @*<table id="dataTablesEmploymentApplication" class="table table-striped" style="width:100%"></table>*@
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            First Name
+                                        </th>
+                                        <th>
+                                            Last Name
+                                        </th>
+                                        <th>
+                                            Email Address
+                                        </th>
+                                        <th>
+                                            Phone Number
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model.Any())
+                                    {
+                                        foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.FirstName)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.LastName)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.EmailAddress)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                                                </td>
+                                                <td>
+                                                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <tr>
+                                            <td colspan="5">
+                                                <div class="alert alert-info">
+                                                    Data not found.
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- End Section -->
+
+</main><!-- End #main -->
+
+@section scripts{
+    <script src="~/js/employmentapplication.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //EmploymentApplication.LoadDataTables('dataTablesEmploymentApplication', App.DisplayLength(), ("/EmploymentApplication/GetDataAsync"));
+        });
+    </script>
+}

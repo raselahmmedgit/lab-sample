@@ -1,0 +1,95 @@
+﻿@model CityGlassCompany.WebSite.ViewModels.EmploymentApplicationViewModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutEmployment.cshtml";
+}
+
+<main id="main" class="mt-4">
+    <!-- ======= Section ======= -->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Create</h1>
+                </div>
+                <div class="col-md-12">
+                    <h4>Employment Application</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="FirstName" class="control-label"></label>
+                            <input asp-for="FirstName" class="form-control" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="LastName" class="control-label"></label>
+                            <input asp-for="LastName" class="form-control" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="DisplayName" class="control-label"></label>
+                            <input asp-for="DisplayName" class="form-control" />
+                            <span asp-validation-for="DisplayName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="EmailAddress" class="control-label"></label>
+                            <input asp-for="EmailAddress" class="form-control" />
+                            <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="PhoneNumber" class="control-label"></label>
+                            <input asp-for="PhoneNumber" class="form-control" />
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="PresentAddress" class="control-label"></label>
+                            <input asp-for="PresentAddress" class="form-control" />
+                            <span asp-validation-for="PresentAddress" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="City" class="control-label"></label>
+                            <input asp-for="City" class="form-control" />
+                            <span asp-validation-for="City" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="State" class="control-label"></label>
+                            <input asp-for="State" class="form-control" />
+                            <span asp-validation-for="State" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Country" class="control-label"></label>
+                            <input asp-for="Country" class="form-control" />
+                            <span asp-validation-for="Country" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ZipCode" class="control-label"></label>
+                            <input asp-for="ZipCode" class="form-control" />
+                            <span asp-validation-for="ZipCode" class="text-danger"></span>
+                        </div>
+
+                        <input type="hidden" asp-for="IsArchived" />
+                        <input type="hidden" asp-for="IsDeleted" />
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <a asp-action="Index">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </section><!-- End Section -->
+
+</main><!-- End #main -->
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
