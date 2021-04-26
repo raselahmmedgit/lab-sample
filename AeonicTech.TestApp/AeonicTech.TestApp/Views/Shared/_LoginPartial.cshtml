@@ -1,0 +1,25 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using AeonicTech.TestApp.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <ul class="navbar-nav flex-grow-1">
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="AddressType" asp-action="Index">Address Type</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Address" asp-action="Index">Address</a>
+        </li>
+    </ul>
+    <div class="navbar-login float-right">
+        Hello @UserManager.GetUserName(User)! <a class="btn btn-danger" href="@Url.Action("Logout", "Account", new { Area = "" })">Log Out</a>
+    </div>
+}
+else
+{
+    <div class="navbar-login float-right">
+        <a class="btn btn-info" href="@Url.Action("Login", "Account", new { Area = "" })">Log In</a>
+    </div>
+}

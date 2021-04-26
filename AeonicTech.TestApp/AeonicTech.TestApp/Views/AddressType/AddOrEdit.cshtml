@@ -1,0 +1,48 @@
+﻿@model AeonicTech.TestApp.ViewModels.AddressTypeViewModel
+@{
+    ViewData["Title"] = "Address Type";
+    ViewData["SubTitle"] = "Address Type";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row mb-4">
+    <div class="col-10">
+        <h1 class="f-26">@ViewData["SubTitle"]</h1>
+    </div>
+    <div class="col-2 text-right">
+        <a href="@Url.Action("Index", "AddressType", new { Area = "" })" title="Back" class="btn btn-secondary">Back</a>
+    </div>
+</div>
+
+@Html.RenderAlert("AddressTypeMessage")
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h2>@TempData["result"]</h2>
+                <form method="post" asp-action="Save" asp-controller="AddressType">
+                    <div class="form-body">
+                        <div class="form-group row">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" asp-for="TypeId" />
+                            <label asp-for="TypeName" class="col-3 control-label"></label>
+                            <div class="col-4">
+                                <input asp-for="TypeName" class="form-control" />
+                                <span asp-validation-for="TypeName"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions form-actions-new">
+                        <div class="row">
+                            <div class="col-12">
+                                <input type="submit" class="btn btn-primary" value="Submit" />
+                                <a href="@Url.Action("Index", "AddressType", new { Area = "" })" title="Back" class="btn btn-danger ml-2">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
