@@ -58,8 +58,8 @@ var AddressType = function () {
                     className: "w-20" ,
                     "mRender": function (data, type, row) {
 
-                        return '<a href="/AddressType/Details/' + row.typeId + '\" data-href=\"/AddressType/Details/' + row.typeId + '\" data-name="' + row.typeName + '" data-typeId="' + row.typeId + '" title="Details" class="btn btn-success">Details</a>'
-                            + ' <a href="/AddressType/Edit/' + row.typeId + '\" data-name="" data-href=\"/AddressType/Edit/' + row.typeId + '\" data-name="' + row.typeName + '" data-typeId="' + row.typeId + '" title="Edit" class="btn btn-warning ml-2">Edit</a>'
+                        return '<a href="/AddressType/Details/' + row.typeId + '\" title="Details" class="btn btn-success">Details</a>'
+                            + ' <a href="/AddressType/Edit/' + row.typeId + '\" title="Edit" class="btn btn-warning ml-2">Edit</a>'
                             //+ ' <button data-href=\"/AddressType/Delete/' + row.typeId + '\" data-name="' + row.typeName + '" data-typeId="' + row.typeId + '" title="Delete" onclick="AppModal.DeleteCommon(this)" class="btn btn-danger ml-2">Delete</button>';
                         //return data;
 

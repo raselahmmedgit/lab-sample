@@ -5,7 +5,6 @@ using AeonicTech.TestApp.ViewModels;
 using AutoMapper;
 using DataTables.AspNet.AspNetCore;
 using DataTables.AspNet.Core;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,24 +12,24 @@ using System.Threading.Tasks;
 
 namespace AeonicTech.TestApp.Managers
 {
-    public class AddressManager : IAddressManager
+    public class CompanyProfileManager : ICompanyProfileManager
     {
-        private readonly IAddressRepository _iAddressRepository;
+        private readonly ICompanyProfileRepository _iCompanyProfileRepository;
         private readonly IMapper _iMapper;
 
-        public AddressManager(IAddressRepository iAddressRepository, IMapper iMapper)
+        public CompanyProfileManager(ICompanyProfileRepository iCompanyProfileRepository, IMapper iMapper)
         {
-            _iAddressRepository = iAddressRepository;
+            _iCompanyProfileRepository = iCompanyProfileRepository;
             _iMapper = iMapper;
         }
 
-        public async Task<AddressEntityViewModel> GetAddressEntityAsync()
+        public async Task<CompanyProfileViewModel> GetCompanyProfileAsync()
         {
             try
             {
-                var dataList = await _iAddressRepository.GetAddressEntitysAsync();
+                var dataList = await _iCompanyProfileRepository.GetCompanyProfilesAsync();
                 var data = dataList.FirstOrDefault();
-                return _iMapper.Map<AddressEntity, AddressEntityViewModel>(data);
+                return _iMapper.Map<CompanyProfile, CompanyProfileViewModel>(data);
             }
             catch (Exception)
             {
@@ -38,12 +37,12 @@ namespace AeonicTech.TestApp.Managers
             }
         }
 
-        public async Task<AddressEntityViewModel> GetAddressEntityAsync(int id)
+        public async Task<CompanyProfileViewModel> GetCompanyProfileAsync(int id)
         {
             try
             {
-                var data = await _iAddressRepository.GetAddressEntityAsync(id);
-                return _iMapper.Map<AddressEntity, AddressEntityViewModel>(data);
+                var data = await _iCompanyProfileRepository.GetCompanyProfileAsync(id);
+                return _iMapper.Map<CompanyProfile, CompanyProfileViewModel>(data);
             }
             catch (Exception)
             {
@@ -55,8 +54,8 @@ namespace AeonicTech.TestApp.Managers
         {
             try
             {
-                var modelList = await _iAddressRepository.GetAddressEntitysAsync();
-                var viewModelList = _iMapper.Map<IEnumerable<AddressEntity>, IEnumerable<AddressEntityViewModel>>(modelList);
+                var modelList = await _iCompanyProfileRepository.GetCompanyProfilesAsync();
+                var viewModelList = _iMapper.Map<IEnumerable<CompanyProfile>, IEnumerable<CompanyProfileViewModel>>(modelList);
 
                 // Global filtering.
                 // Filter is being manually applied due to in-memmory (IEnumerable) data.
@@ -64,12 +63,12 @@ namespace AeonicTech.TestApp.Managers
 
                 int dataCount = viewModelList.Count();
                 int filteredDataCount = 0;
-                IEnumerable<AddressEntityViewModel> dataPage;
+                IEnumerable<CompanyProfileViewModel> dataPage;
                 if (viewModelList.Count() > 0 && request != null)
                 {
                     var filteredData = String.IsNullOrWhiteSpace(request.Search.Value)
                     ? viewModelList
-                    : viewModelList.Where(_item => _item.AddressLineOne.Contains(request.Search.Value));
+                    : viewModelList.Where(_item => _item.CompanyName.Contains(request.Search.Value));
 
                     dataCount = filteredData.Count();
 
@@ -102,12 +101,12 @@ namespace AeonicTech.TestApp.Managers
             }
         }
 
-        public async Task<IEnumerable<AddressEntityViewModel>> GetAddressEntitysAsync()
+        public async Task<IEnumerable<CompanyProfileViewModel>> GetCompanyProfilesAsync()
         {
             try
             {
-                var data = await _iAddressRepository.GetAddressEntitysAsync();
-                return _iMapper.Map<IEnumerable<AddressEntity>, IEnumerable<AddressEntityViewModel>>(data);
+                var data = await _iCompanyProfileRepository.GetCompanyProfilesAsync();
+                return _iMapper.Map<IEnumerable<CompanyProfile>, IEnumerable<CompanyProfileViewModel>>(data);
             }
             catch (Exception)
             {
@@ -115,19 +114,19 @@ namespace AeonicTech.TestApp.Managers
             }
         }
 
-        public async Task<int> InsertOrUpdatetAddressEntityAsync(AddressEntityViewModel model)
+        public async Task<int> InsertOrUpdatetCompanyProfileAsync(CompanyProfileViewModel model)
         {
-            var data = _iMapper.Map<AddressEntityViewModel, AddressEntity>(model);
-            return await _iAddressRepository.InsertOrUpdatetAddressEntityAsync(data);
+            var data = _iMapper.Map<CompanyProfileViewModel, CompanyProfile>(model);
+            return await _iCompanyProfileRepository.InsertOrUpdatetCompanyProfileAsync(data);
         }
 
-        public async Task<Result> InsertAddressEntityAsync(AddressEntityViewModel model)
+        public async Task<Result> InsertCompanyProfileAsync(CompanyProfileViewModel model)
         {
             try
             {
-                var data = _iMapper.Map<AddressEntityViewModel, AddressEntity>(model);
+                var data = _iMapper.Map<CompanyProfileViewModel, CompanyProfile>(model);
 
-                var saveChange = await _iAddressRepository.InsertAddressEntityAsync(data);
+                var saveChange = await _iCompanyProfileRepository.InsertCompanyProfileAsync(data);
 
                 if (saveChange > 0)
                 {
@@ -144,13 +143,13 @@ namespace AeonicTech.TestApp.Managers
             }
         }
 
-        public async Task<Result> UpdateAddressEntityAsync(AddressEntityViewModel model)
+        public async Task<Result> UpdateCompanyProfileAsync(CompanyProfileViewModel model)
         {
             try
             {
-                var data = _iMapper.Map<AddressEntityViewModel, AddressEntity>(model);
+                var data = _iMapper.Map<CompanyProfileViewModel, CompanyProfile>(model);
 
-                var saveChange = await _iAddressRepository.UpdateAddressEntityAsync(data);
+                var saveChange = await _iCompanyProfileRepository.UpdateCompanyProfileAsync(data);
 
                 if (saveChange > 0)
                 {
@@ -167,16 +166,16 @@ namespace AeonicTech.TestApp.Managers
             }
         }
 
-        public async Task<Result> DeleteAddressEntityAsync(int id)
+        public async Task<Result> DeleteCompanyProfileAsync(int id)
         {
             try
             {
-                var model = await GetAddressEntityAsync(id);
+                var model = await GetCompanyProfileAsync(id);
                 if (model != null)
                 {
-                    var data = _iMapper.Map<AddressEntityViewModel, AddressEntity>(model);
+                    var data = _iMapper.Map<CompanyProfileViewModel, CompanyProfile>(model);
 
-                    var saveChange = await _iAddressRepository.DeleteAddressEntityAsync(data);
+                    var saveChange = await _iCompanyProfileRepository.DeleteCompanyProfileAsync(data);
 
                     if (saveChange > 0)
                     {
@@ -197,47 +196,17 @@ namespace AeonicTech.TestApp.Managers
                 throw;
             }
         }
-
-        public async Task<List<SelectListItem>> GetCountryEntitysAsync()
-        {
-            try
-            {
-                var data = await _iAddressRepository.GetCountryEntitysAsync();
-                var countryEntitys = data.Where(x => x.IsActive == true).Select(x => new SelectListItem { Text = x.CountryDisplayName, Value = x.CountryId.ToString() }).ToList();
-                return countryEntitys;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        public async Task<List<SelectListItem>> GetStateEntitysAsync()
-        {
-            try
-            {
-                var data = await _iAddressRepository.GetStateEntitysAsync();
-                var stateEntitys = data.Where(x => x.IsActive == true).Select(x => new SelectListItem { Text = x.StateName, Value = x.StateId.ToString() }).ToList();
-                return stateEntitys;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
     }
 
-    public interface IAddressManager
+    public interface ICompanyProfileManager
     {
-        Task<AddressEntityViewModel> GetAddressEntityAsync();
-        Task<AddressEntityViewModel> GetAddressEntityAsync(int id);
+        Task<CompanyProfileViewModel> GetCompanyProfileAsync();
+        Task<CompanyProfileViewModel> GetCompanyProfileAsync(int id);
         Task<DataTablesResponse> GetDataTablesResponseAsync(IDataTablesRequest request);
-        Task<IEnumerable<AddressEntityViewModel>> GetAddressEntitysAsync();
-        Task<int> InsertOrUpdatetAddressEntityAsync(AddressEntityViewModel model);
-        Task<Result> InsertAddressEntityAsync(AddressEntityViewModel model);
-        Task<Result> UpdateAddressEntityAsync(AddressEntityViewModel model);
-        Task<Result> DeleteAddressEntityAsync(int id);
-        Task<List<SelectListItem>> GetCountryEntitysAsync();
-        Task<List<SelectListItem>> GetStateEntitysAsync();
+        Task<IEnumerable<CompanyProfileViewModel>> GetCompanyProfilesAsync();
+        Task<int> InsertOrUpdatetCompanyProfileAsync(CompanyProfileViewModel model);
+        Task<Result> InsertCompanyProfileAsync(CompanyProfileViewModel model);
+        Task<Result> UpdateCompanyProfileAsync(CompanyProfileViewModel model);
+        Task<Result> DeleteCompanyProfileAsync(int id);
     }
 }

@@ -5,8 +5,11 @@
 }
 
 <div class="row mb-4">
-    <div class="col-10">
+    <div class="col-8">
         <h1 class="f-26">@ViewData["SubTitle"]</h1>
+    </div>
+    <div class="col-2 text-right">
+        <a href="@Url.Action("ApiIndex", "Address", new { Area = "" })" title="Add" class="btn btn-info">Get All By Api</a>
     </div>
     <div class="col-2 text-right">
         <a href="@Url.Action("Add", "Address", new { Area = "" })" title="Add" class="btn btn-primary">Add New</a>

@@ -36,7 +36,7 @@ var Address = function () {
             columns: [
                 {
                     name: 'AddressId',
-                    data: 'typeId',
+                    data: 'addressId',
                     title: "AddressId",
                     sortable: false,
                     searchable: false,
@@ -51,16 +51,16 @@ var Address = function () {
                 },
                 {
                     name: 'AddressId',
-                    data: "typeId",
+                    data: "addressId",
                     title: "Actions",
                     sortable: false,
                     searchable: false,
                     className: "w-20" ,
                     "mRender": function (data, type, row) {
 
-                        return '<a href="/Address/Details/' + row.typeId + '\" data-href=\"/Address/Details/' + row.typeId + '\" data-name="' + row.addressLineOne + '" data-typeId="' + row.typeId + '" title="Details" class="btn btn-success">Details</a>'
-                            + ' <a href="/Address/Edit/' + row.typeId + '\" data-name="" data-href=\"/Address/Edit/' + row.typeId + '\" data-name="' + row.addressLineOne + '" data-typeId="' + row.typeId + '" title="Edit" class="btn btn-warning ml-2">Edit</a>'
-                            //+ ' <button data-href=\"/Address/Delete/' + row.typeId + '\" data-name="' + row.addressLineOne + '" data-typeId="' + row.typeId + '" title="Delete" onclick="AppModal.DeleteCommon(this)" class="btn btn-danger ml-2">Delete</button>';
+                        return '<a href="/Address/Details/' + row.addressId + '\" title="Details" class="btn btn-success">Details</a>'
+                            + ' <a href="/Address/Edit/' + row.addressId + '\" title="Edit" class="btn btn-warning ml-2">Edit</a>'
+                            //+ ' <button data-href=\"/Address/Delete/' + row.addressId + '\" data-name="' + row.addressLineOne + '" data-addressId="' + row.addressId + '" title="Delete" onclick="AppModal.DeleteCommon(this)" class="btn btn-danger ml-2">Delete</button>';
                         //return data;
 
                     }

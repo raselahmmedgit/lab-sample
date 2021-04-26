@@ -1,4 +1,5 @@
-﻿using AeonicTech.TestApp.Controllers;
+﻿using AeonicTech.TestApp.ApiServices;
+using AeonicTech.TestApp.Controllers;
 using AeonicTech.TestApp.Exceptions;
 using AeonicTech.TestApp.Helpers;
 using AeonicTech.TestApp.Managers;
@@ -21,15 +22,18 @@ namespace AeonicTech.TestApp.Controllers
         #region Global Variable Declaration
         private readonly IMapper _iMapper;
         private readonly IAddressManager _iAddressManager;
+        private readonly IAddressApiService _iAddressApiService;
         private readonly ILog _log;
         #endregion
 
         #region Constructor
         public AddressController(IAddressManager iAddressManager
+            , IAddressApiService iAddressApiService
             , IMapper iMapper
         )
         {
             _iAddressManager = iAddressManager;
+            _iAddressApiService = iAddressApiService;
             _iMapper = iMapper;
             _log = LogManager.GetLogger(typeof(AddressController));
         }
@@ -64,13 +68,16 @@ namespace AeonicTech.TestApp.Controllers
             }
         }
 
-        public IActionResult Add()
+        public async Task<IActionResult> Add()
         {
             try
             {
                 var model = new AddressEntityViewModel();
                 if (model != null)
                 {
+                    ViewBag.CountryList = await _iAddressManager.GetCountryEntitysAsync();
+                    ViewBag.StateList = await _iAddressManager.GetStateEntitysAsync();
+
                     return View("AddOrEdit", model);
                 }
                 else
@@ -96,6 +103,9 @@ namespace AeonicTech.TestApp.Controllers
 
                 if (model != null)
                 {
+                    ViewBag.CountryList = await _iAddressManager.GetCountryEntitysAsync();
+                    ViewBag.StateList = await _iAddressManager.GetStateEntitysAsync();
+
                     return View("AddOrEdit", model);
                 }
                 else
@@ -145,6 +155,9 @@ namespace AeonicTech.TestApp.Controllers
         {
             try
             {
+                ViewBag.CountryList = await _iAddressApiService.GetAllCountryAsync();
+                ViewBag.StateList = await _iAddressApiService.GetAllStateAsync();
+
                 if (ModelState.IsValid)
                 {
                     //add
@@ -165,13 +178,13 @@ namespace AeonicTech.TestApp.Controllers
                     else
                     {
                         this.FlashError(_result.Error, "AddressMessage");
-                        return View(viewModel);
+                        return View("AddOrEdit", viewModel);
                     }
                 }
                 else
                 {
                     this.FlashError(ExceptionHelper.ModelStateErrorFirstFormat(ModelState), "AddressMessage");
-                    return View(viewModel);
+                    return View("AddOrEdit", viewModel);
                 }
             }
             catch (Exception ex)
@@ -180,7 +193,7 @@ namespace AeonicTech.TestApp.Controllers
             }
 
             this.FlashError(MessageHelper.UnhandelledError, "AddressMessage");
-            return View(viewModel);
+            return View("AddOrEdit", viewModel);
         }
 
         [HttpPost]
@@ -213,6 +226,86 @@ namespace AeonicTech.TestApp.Controllers
                 _result = Result.Fail(MessageHelper.UnhandelledError);
                 return JsonResult(_result);
             }
+        }
+
+        public async Task<IActionResult> ApiIndex()
+        {
+            try
+            {
+                var dataList = await _iAddressApiService.GetAllAddressAsync();
+                return View(dataList);
+            }
+            catch (Exception ex)
+            {
+                return ErrorView(ex);
+            }
+        }
+
+        public async Task<IActionResult> ApiAdd()
+        {
+            try
+            {
+                var model = new AddressEntityViewModel();
+                if (model != null)
+                {
+                    ViewBag.CountryList = await _iAddressApiService.GetAllCountryAsync();
+                    ViewBag.StateList = await _iAddressApiService.GetAllStateAsync();
+
+                    return View("ApiAddOrEdit", model);
+                }
+                else
+                {
+                    this.FlashError(ExceptionHelper.ExceptionErrorMessageForNullObject(), "AddressMessage");
+                    return RedirectToAction("ApiIndex", "Address");
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.Error(LogMessageHelper.FormateMessageForException(ex, "ApiAdd[GET]"));
+            }
+
+            this.FlashError(MessageHelper.UnhandelledError, "AddressMessage");
+            return RedirectToAction("ApiIndex", "Address");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ApiSave(AddressEntityViewModel viewModel)
+        {
+            try
+            {
+                ViewBag.CountryList = await _iAddressApiService.GetAllCountryAsync();
+                ViewBag.StateList = await _iAddressApiService.GetAllStateAsync();
+
+                if (ModelState.IsValid)
+                {
+                    //add
+                    _result = await _iAddressApiService.SaveAddressAsync(viewModel);
+
+                    if (_result.Success)
+                    {
+                        this.FlashSuccess(MessageHelper.Save, "AddressMessage");
+                        return RedirectToAction("ApiIndex", "Address");
+                    }
+                    else
+                    {
+                        this.FlashError(_result.Error, "AddressMessage");
+                        return View("ApiAddOrEdit", viewModel);
+                    }
+                }
+                else
+                {
+                    this.FlashError(ExceptionHelper.ModelStateErrorFirstFormat(ModelState), "AddressMessage");
+                    return View("ApiAddOrEdit", viewModel);
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.Error(LogMessageHelper.FormateMessageForException(ex, "ApiSave[POST]"));
+            }
+
+            this.FlashError(MessageHelper.UnhandelledError, "AddressMessage");
+            return View("ApiAddOrEdit", viewModel);
         }
 
         #endregion

@@ -76,6 +76,15 @@ namespace AeonicTech.TestApp.Repositories
             return await _context.SaveChangesAsync();
         }
 
+        public async Task<List<CountryEntity>> GetCountryEntitysAsync()
+        {
+            return await _context.CountryEntity.ToListAsync();
+        }
+
+        public async Task<List<StateEntity>> GetStateEntitysAsync()
+        {
+            return await _context.StateEntity.ToListAsync();
+        }
     }
 
     public interface IAddressRepository
@@ -86,5 +95,7 @@ namespace AeonicTech.TestApp.Repositories
         Task<int> InsertAddressEntityAsync(AddressEntity model);
         Task<int> UpdateAddressEntityAsync(AddressEntity model);
         Task<int> DeleteAddressEntityAsync(AddressEntity model);
+        Task<List<CountryEntity>> GetCountryEntitysAsync();
+        Task<List<StateEntity>> GetStateEntitysAsync();
     }
 }

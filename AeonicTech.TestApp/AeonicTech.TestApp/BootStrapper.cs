@@ -1,4 +1,5 @@
-﻿using AeonicTech.TestApp.Extensions;
+﻿using AeonicTech.TestApp.ApiServices;
+using AeonicTech.TestApp.Extensions;
 using AeonicTech.TestApp.Managers;
 using AeonicTech.TestApp.Repositories;
 using AeonicTech.TestApp.Utility.AutoMapperProfile;
@@ -68,10 +69,14 @@ namespace AeonicTech.TestApp
 
                 services.RegisterAutoMapper();
 
+                services.AddTransient<ICompanyProfileManager, CompanyProfileManager>();
+                services.AddTransient<ICompanyProfileRepository, CompanyProfileRepository>();
                 services.AddTransient<IAddressTypeManager, AddressTypeManager>();
                 services.AddTransient<IAddressTypeRepository, AddressTypeRepository>();
                 services.AddTransient<IAddressManager, AddressManager>();
                 services.AddTransient<IAddressRepository, AddressRepository>();
+
+                services.AddTransient<IAddressApiService, AddressApiService>();
 
                 services.RegisterDataTables();
             }

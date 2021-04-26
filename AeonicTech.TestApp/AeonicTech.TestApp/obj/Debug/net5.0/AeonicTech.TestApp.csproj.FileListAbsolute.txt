@@ -406,7 +406,9 @@ C:\Users\rasel\Documents\GitHub\lab-sample\AeonicTech.TestApp\AeonicTech.TestApp
 C:\Users\rasel\Documents\GitHub\lab-sample\AeonicTech.TestApp\AeonicTech.TestApp\obj\Debug\net5.0\Razor\Views\AddressType\AddOrEdit.cshtml.g.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\AeonicTech.TestApp\AeonicTech.TestApp\obj\Debug\net5.0\Razor\Views\AddressType\Details.cshtml.g.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\AeonicTech.TestApp\AeonicTech.TestApp\obj\Debug\net5.0\Razor\Views\AddressType\Index.cshtml.g.cs
-C:\Users\rasel\Documents\GitHub\lab-sample\AeonicTech.TestApp\AeonicTech.TestApp\obj\Debug\net5.0\AeonicTech.TestApp.csprojAssemblyReference.cache
 C:\Users\rasel\Documents\GitHub\lab-sample\AeonicTech.TestApp\AeonicTech.TestApp\obj\Debug\net5.0\Razor\Views\Address\AddOrEdit.cshtml.g.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\AeonicTech.TestApp\AeonicTech.TestApp\obj\Debug\net5.0\Razor\Views\Address\Details.cshtml.g.cs
 C:\Users\rasel\Documents\GitHub\lab-sample\AeonicTech.TestApp\AeonicTech.TestApp\obj\Debug\net5.0\Razor\Views\Address\Index.cshtml.g.cs
+C:\Users\rasel\Documents\GitHub\lab-sample\AeonicTech.TestApp\AeonicTech.TestApp\obj\Debug\net5.0\AeonicTech.TestApp.csprojAssemblyReference.cache
+C:\Users\rasel\Documents\GitHub\lab-sample\AeonicTech.TestApp\AeonicTech.TestApp\obj\Debug\net5.0\Razor\Views\Address\ApiIndex.cshtml.g.cs
+C:\Users\rasel\Documents\GitHub\lab-sample\AeonicTech.TestApp\AeonicTech.TestApp\obj\Debug\net5.0\Razor\Views\Address\ApiAddOrEdit.cshtml.g.cs

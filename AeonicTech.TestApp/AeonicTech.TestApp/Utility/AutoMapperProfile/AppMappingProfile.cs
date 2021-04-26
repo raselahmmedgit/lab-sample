@@ -8,6 +8,12 @@ namespace AeonicTech.TestApp.Utility.AutoMapperProfile
     {
         public AppMappingProfile()
         {
+            CreateMap<CountryEntityViewModel, CountryEntity>();
+            CreateMap<CountryEntity, CountryEntityViewModel>();
+
+            CreateMap<StateEntityViewModel, StateEntity>();
+            CreateMap<StateEntity, StateEntityViewModel>();
+
             CreateMap<CompanyProfileViewModel, CompanyProfile>();
             CreateMap<CompanyProfile, CompanyProfileViewModel>();
 

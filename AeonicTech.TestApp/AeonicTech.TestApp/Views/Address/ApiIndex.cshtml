@@ -1,0 +1,64 @@
+﻿@model IEnumerable<AeonicTech.TestApp.ViewModels.AddressEntityViewModel>
+
+@{
+    ViewData["Title"] = "Address - Get All By Api";
+    ViewData["SubTitle"] = "Address - Get All By Api";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row mb-4">
+    <div class="col-10">
+        <h1 class="f-26">@ViewData["SubTitle"]</h1>
+    </div>
+    <div class="col-2 text-right">
+        <a href="@Url.Action("ApiAdd", "Address", new { Area = "" })" title="Add" class="btn btn-primary">Add New By Api</a>
+    </div>
+</div>
+
+@Html.RenderAlert("AddressMessage")
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                Address Line One
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Any())
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.AddressLineOne)
+                                    </td>
+                                    <td>
+                                        <a href="/Address/Details/@item.AddressId" title="Details" class="btn btn-success">Details</a>
+                                        <a href="/Address/Edit/@item.AddressId" title="Details" class="btn btn-warning ml-2">Edit</a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="5">
+                                    <div class="alert alert-info">
+                                        Data not found.
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
