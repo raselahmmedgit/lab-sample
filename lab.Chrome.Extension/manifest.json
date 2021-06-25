@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+  "name": "My Todo List",
+  "version": "1.0",
+  "description": "My Todo List",
+  "icons": {
+    "128": "icon128.png",
+    "48": "icon48.png",
+    "16": "icon16.png"
+  },
+
+  "browser_action": {
+    "popup": "popup.html",
+    "default_popup": "popup.html"
+  }
+}
