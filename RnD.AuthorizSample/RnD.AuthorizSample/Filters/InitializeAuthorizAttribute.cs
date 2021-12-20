@@ -40,6 +40,61 @@ namespace RnD.AuthorizSample.Filters
             }
         }
 
+        /*
+        public override async void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            try
+            {
+                if (filterContext.HttpContext.User.Identity != null && filterContext.HttpContext.User.Identity.IsAuthenticated)
+                {
+                    string currentUserName = filterContext.HttpContext.User.Identity.Name;
+                    string currentUserRoleName = filterContext.HttpContext.User.FindFirst(ClaimTypes.Role).Value;
+                    if (!string.IsNullOrEmpty(currentUserName) && !string.IsNullOrEmpty(currentUserRoleName))
+                    {
+                        if (_iAppUserManager != null)
+                        {
+                            var areaRoute = filterContext.RouteData.Values["area"];
+                            string? areaName = areaRoute != null ? areaRoute.ToString() : string.Empty;
+
+                            var controllerRoute = filterContext.RouteData.Values["controller"];
+                            string? controllerName = controllerRoute != null ? controllerRoute.ToString() : string.Empty;
+
+                            var actionRoute = filterContext.RouteData.Values["action"];
+                            string? actionName = actionRoute != null ? actionRoute.ToString() : string.Empty;
+
+                            var currentUser = await _iAppUserManager.GetAppUserByUserRoleAsync(currentUserName, currentUserRoleName);
+                            if (currentUser == null)
+                            {
+                                if (!IsAjaxRequest(filterContext.HttpContext.Request))
+                                {
+                                    filterContext.Result = RequestResult();
+                                }
+                                else
+                                {
+                                    filterContext.Result = RequestResultAjax();
+                                }
+                            }
+                            else 
+                            {
+                                if (currentUser.RoleName == AppConstants.AppUserRole.ReaderUser)
+                                {
+                                    if (!string.IsNullOrEmpty(actionName) && !actionName.Contains("Index"))
+                                    {
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(LogMessageHelper.FormateMessageForException(ex, "OnActionExecuting"));
+            }
+        }
+        */
         private class SimpleMembershipInitializer
         {
             public SimpleMembershipInitializer()
